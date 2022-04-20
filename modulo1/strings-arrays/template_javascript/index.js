@@ -57,7 +57,7 @@ console.log(array)
 
     //Desafio02
 let arrayFrutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"]
-console.log(arrayFrutas.indexOf("Abacaxi"))
+console.log(arrayFrutas.indexOf("Abacaxi"),(arrayFrutas.length))
 
 
 
