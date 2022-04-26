@@ -45,14 +45,9 @@ const pessoa2 = {
 }
 
 function pessoas (objeto1, objeto2) {
-    return [
-    {nome: objeto1.nome, caracteres: objeto1.nome.length},
-    {nome: objeto2.nome, caracteres: objeto2.nome.length},
-    {idade: objeto1.idade},
-    {idade: objeto2.idade},
-    {profissao: objeto1.profissao, caracteres: objeto1.profissao.length },
-    {profissao: objeto2.profissao, caracteres: objeto2.profissao.length}   
-    ]
+let pess1 = [objeto1.nome, objeto1.nome.length, objeto1.idade, objeto1.profissao, objeto1.profissao.length]
+let pess2 = [objeto2.nome, objeto2.nome.length, objeto2.idade, objeto2.profissao, objeto2.profissao.length]
+return [pess1, pess2]
 }
 console.log(pessoas(pessoa1, pessoa2))
 
