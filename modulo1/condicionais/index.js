@@ -103,7 +103,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.sf.cat1 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -116,7 +116,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.sf.cat2 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -129,7 +129,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.sf.cat3 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -142,7 +142,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.sf.cat4 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -156,7 +156,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.dt.cat1 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -169,7 +169,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.dt.cat2 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -182,7 +182,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.dt.cat3 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -197,7 +197,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.dt.cat4 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -212,7 +212,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.fi.cat1 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -227,7 +227,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.fi.cat2 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -242,7 +242,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.fi.cat3 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
@@ -255,7 +255,7 @@ function escolhacatjogo() {
          total = jogosDomesticos.fi.cat4 * quantidade
          total = total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
       } else if (tipoJogo = "SI") {
-         ingresso = (ingresso * 4.10)
+         ingresso = (ingresso / 4.10)
          total = ingresso * quantidade
          ingresso = ingresso.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
          total = total.toLocaleString('en-IN', { style: 'currency', currency: 'USD' })
