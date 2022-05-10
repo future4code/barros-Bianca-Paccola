@@ -10,6 +10,9 @@ function retornaTamanhoArray(array) {
 
 // EXERCÍCIO 02
 function retornaArrayInvertido(array) {
+    //return array.reverse()
+    
+    //desafio
     let novoArray = []
     for (i = array.length-1; i >= 0; i--){
        novoArray.push(array[i])
@@ -38,7 +41,14 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    //retorna os pares
+    let novoArray = []
+    array.filter((item)=>{
+        if(item % 2 == 0){
+            novoArray.push(item ** 2) //potenciação
+        }
+    })
+    return novoArray
 }
 
 // EXERCÍCIO 06
