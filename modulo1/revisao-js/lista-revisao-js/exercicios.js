@@ -84,7 +84,7 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-    let contador = [0]
+    contador = [0]
     i = 0
    while(contador.length < n){
         i+=2
@@ -96,7 +96,13 @@ function retornaNPrimeirosPares(n) {
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+    if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC){
+        return "Escaleno"
+    } else if (ladoA === ladoB && ladoA === ladoC){
+    return "Equilátero"
+    } else {
+        return "Isósceles"
+    }
 }
 
 // EXERCÍCIO 10
