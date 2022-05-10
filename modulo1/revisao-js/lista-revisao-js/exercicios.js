@@ -19,7 +19,10 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-
+  function ordenar(a,b){
+      return (a-b)
+  }
+  return array.sort(ordenar)
 }
 
 // EXERCÍCIO 04
