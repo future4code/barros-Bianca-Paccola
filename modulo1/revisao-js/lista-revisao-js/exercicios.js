@@ -22,20 +22,45 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    function ordenar(a, b) {
+    /*function ordenar(a, b) {
         return (a - b)
     }
-    return array.sort(ordenar)
+    return array.sort(ordenar)*/
+
+    //DESAFIO
+    for (let i = 0; i < array.length; i++){
+        let arrayAux
+        if (i < array.length-1){
+            let indice2 = i + 1
+                for (let indice1 = 0; indice1 < array.length; indice1++){
+                    if (array[indice1] > array[indice2]){
+                        arrayAux = array[indice1]
+                        array[indice1] = array[indice2]
+                        array[indice2] = arrayAux
+                    }
+                }
+        }
+    }
+    return array
 }
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-    let novoArray = []
+    /*let novoArray = []
     array.filter((item) => {
         if (item % 2 == 0) {
             novoArray.push(item)
         }
     })
+    return novoArray*/
+
+    //DESAFIO
+    let novoArray = []
+    for(indice of array){
+        if (indice % 2 == 0){
+            novoArray.push(indice)
+        }
+    }
     return novoArray
 }
 
@@ -177,22 +202,18 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
     return listaConsultasOdemAlf  
 }
 
-// EXERCÍCIO 15B
+// EXERCÍCIO 15B - DESAFIO
 function retornaArrayOrdenadoPorData(consultas) {
-    // let separador = "/"
-    // for (let i = 0; i < consultas.length; i++){
-    //     consultas[i].dataDaConsulta[i].split(separador)
-    //     }
-
-    let listaConsultasPorData = consultas.sort(function (a, b) {
-        if (a.dataDaConsulta[0,1] > b.dataDaConsulta[0,1]) {
-          return 1;
-        }
-        if (a.dataDaConsulta[0,1] < b.dataDaConsulta[0,1] ) {
-          return -1;
-        }
-         return 0;
-      });
-
-return listaConsultasPorData
+    for (let i = 0; i < consultas.length; i++){
+        consultas[i].dataDaConsulta.split('/')
+            return consultas.sort(function (a, b) {
+                if (a.dataDaConsulta > b.dataDaConsulta) {
+                  return 1;
+                }
+                if (a.dataDaConsulta < b.dataDaConsulta ) {
+                  return -1;
+                }
+                 return 0;
+              });
+    }
 }
