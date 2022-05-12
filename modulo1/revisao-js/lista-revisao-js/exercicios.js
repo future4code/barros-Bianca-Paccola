@@ -179,20 +179,20 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-    let separador = "/"
-    for (let i = 0; i < consultas.length; i++){
-        consultas[i].dataDaConsulta[i].split(separador)
-        }
+    // let separador = "/"
+    // for (let i = 0; i < consultas.length; i++){
+    //     consultas[i].dataDaConsulta[i].split(separador)
+    //     }
 
     let listaConsultasPorData = consultas.sort(function (a, b) {
-        if (a.dataDaConsulta[0,1] > b.dataDaConsulta[0,1] ) {
+        if (a.dataDaConsulta[0,1] > b.dataDaConsulta[0,1]) {
           return 1;
         }
-        if (a.dataDaConsulta[0,1] < b.dataDaConsulta[0,1]) {
+        if (a.dataDaConsulta[0,1] < b.dataDaConsulta[0,1] ) {
           return -1;
         }
-        return 0;
+         return 0;
       });
-    
+
 return listaConsultasPorData
 }
