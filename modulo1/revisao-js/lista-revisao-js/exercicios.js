@@ -204,16 +204,24 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B - DESAFIO
 function retornaArrayOrdenadoPorData(consultas) {
-    for (let i = 0; i < consultas.length; i++){
-        consultas[i].dataDaConsulta.split('/')
-            return consultas.sort(function (a, b) {
-                if (a.dataDaConsulta > b.dataDaConsulta) {
-                  return 1;
-                }
-                if (a.dataDaConsulta < b.dataDaConsulta ) {
-                  return -1;
-                }
-                 return 0;
-              });
-    }
+    //Transforma a data em array
+    let datas = consultas.map((item)=>{
+        return {nome: item.nome, dataDaConsulta: item.dataDaConsulta.split('/'),}
+    })
+    //Sorteia por odem crescente
+    for (let i = 0; i < datas.length; i++){
+        datas.sort((a,b)=>{
+        if (a.dataDaConsulta[i] > b.dataDaConsulta[i]) {
+            return 1;
+        }
+        else if (a.dataDaConsulta[i] < b.dataDaConsulta[i] ) {
+            return -1;
+        }
+        return 0;
+    })}
+    //Volta a data para string
+    let consultasPorData = datas.map((item)=>{
+        return {nome: item.nome, dataDaConsulta: item.dataDaConsulta.join('/')}
+    })
+    return consultasPorData
 }
