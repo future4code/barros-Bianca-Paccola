@@ -145,7 +145,7 @@ function retornaPessoasNaoAutorizadas(pessoas) {
     return pessoasNaoAutorizadas
 }
 
-// EXERCÍCIO 14    // SÓ EU E DEUS SABEMOS O QUANTO ESSE EXERCÍCIO FOI UMA VITÓRIA PARA MIM, POIS CHEGUEI A PENSA QUE NUNCA IRIA CONSEGUIR!!!
+// EXERCÍCIO 14    // SÓ EU E DEUS SABEMOS O QUANTO ESSE EXERCÍCIO FOI UMA VITÓRIA PARA MIM, POIS CHEGUEI A PENSAR QUE NUNCA IRIA CONSEGUIR!!!
 
 function retornaContasComSaldoAtualizado(contas) {
     // soma as compras!!! e cria um array com os totais de cada um     
@@ -164,10 +164,20 @@ function retornaContasComSaldoAtualizado(contas) {
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-
+    let listaConsultasOdemAlf = consultas.sort(function (a, b) {
+        if (a.nome > b.nome) {
+          return 1;
+        }
+        if (a.nome < b.nome) {
+          return -1;
+        }
+        return 0;
+      });
+ 
+    return listaConsultasOdemAlf  
 }
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-
+    
 }
