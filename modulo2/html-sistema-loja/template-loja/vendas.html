@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Vendas</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Página Inicial |</a>
+            <a href="ctrl-estoque.html">Controle de Estoque |</a>
+            <a href="add-produto.html">Adicionar Produto |</a>
+            <a href="funcionarios.html">Funcionários |</a>
+            <div class="vendas"><a href="vendas.html">Vendas ⚙️</a></div>
+        </nav>
+    </header>
+    <p class="nome-loja">Universo Woodstock 69</p>
+    <h2>Adicionar produtos vendidos</h2>
+
+    <form action="">
+        <div>
+            <label for="produto1">Album Led Zeppelin II</label>
+            <input type="checkbox" id="produto1" name="produto1">
+        </div>
+        <div>
+            <label for="produto1">Album The Beatles Abbey Road</label>
+            <input type="checkbox" id="produto1" name="produto1">
+        </div>
+        <div>
+            <label for="produto1">Album The Who Tommy</label>
+            <input type="checkbox" id="produto1" name="produto1">
+        </div>
+        <div>
+            <label for="produto1">Album Creedence CR Bayou Country</label>
+            <input type="checkbox" id="produto1" name="produto1">
+        </div>
+        <div>
+            <label for="produto1">Album Janis Joplin – I Got Dem Ol’ Kozmic Blues Again Mama!</label>
+            <input type="checkbox" id="produto1" name="produto1">
+        </div>
+        <div class="pgto">
+            <label for="forma-pgto">Forma de Pagamento</label>
+            <input list="forma-pgtos" name="forma-pgto" id="forma-pgto">
+            <datalist id="forma-pgtos">
+                <option value="Dinheiro">
+                <option value="Cartão Débito">
+                <option value="Cartão Crédito">
+            </datalist>
+        </div>
+        <input type="submit" class="enviar">
+    </form>
+
+    <a href="historico.html"><button class="historico">Histórico de Vendas</button></a>
+
+</body>
+</html>
