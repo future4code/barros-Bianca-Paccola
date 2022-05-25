@@ -43,12 +43,11 @@
         </div>
         <div class="pgto">
             <label for="forma-pgto">Forma de Pagamento</label>
-            <input list="forma-pgtos" name="forma-pgto" id="forma-pgto">
-            <datalist id="forma-pgtos">
-                <option value="Dinheiro">
-                <option value="Cartão Débito">
-                <option value="Cartão Crédito">
-            </datalist>
+            <select name="forma-pgto">
+                <option value="dinheiro">Dinheiro</option>
+                <option value="debito">Cartão Débito</option>
+                <option value="credito">Cartão Crédito</option>
+            </select>
         </div>
         <input type="submit" class="enviar">
     </form>
