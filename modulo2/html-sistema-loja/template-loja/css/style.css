@@ -1,0 +1,103 @@
+*{
+    margin: 0%;
+}
+
+header{
+    background-color: rgb(42, 41, 41);
+    width: 100vw;
+    height: 30px;
+    text-align: center;
+}
+
+a{
+    padding: 30px;
+    text-decoration: none;
+    color: blanchedalmond;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+}
+
+.vendas{
+    float: right;
+    background-color: brown;
+    padding: 2px;
+}
+
+p{
+    font-size: 20px;
+}
+
+.nome-loja{
+    font-family: cursive;
+    font-size: 25px;
+    padding: 3%;
+    color: rgb(106, 17, 17);
+}
+
+form{
+    font-size: 18px;
+    padding: 20px;
+    line-height: 1.8;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+button, .enviar{
+    padding: 1.5%;
+    margin-top: 1%;
+    font-size: 16px;
+    font-weight: bold;
+    color: blanchedalmond;
+    border-radius: 10px;
+    background-color: rgb(106, 17, 17);
+}
+
+h2{
+    margin-left: 5%;
+    text-decoration: underline;
+}
+
+ul{
+    line-height: 2;
+    margin-top: 1%;
+    margin-left: 32px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+table{
+    text-align: center;
+}
+
+th{
+    font-size: 20px;
+    background-color: rgb(50, 168, 129);
+    padding: 5px;
+}
+
+td{
+    background-color: rgb(254, 215, 157);
+    font-size: 25px;
+    font-weight: 500;
+
+}
+
+label{
+    font-weight: bold;
+}
+
+.pgto{
+    margin-top: 30px;
+}
+
+.historico{
+   float: right;
+   background-color: black;
+   box-shadow: 10px 7px 7px brown;
+   font-size: 25px;
+}
+
+.tabela-vendas{
+    padding: 2%;
+}
+
