@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    background-image: linear-gradient(219deg, rgba(0,0,0,1) 0%, rgba(38,31,49,1) 55%, rgba(131,89,103,1) 100%);
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+header{
+    width: 100vw;;
+    height: 50px;
+    display: block;
+    background: linear-gradient(180deg, rgba(255,252,252,0.3)0%, rgba(255,252,252,0)100%);
+    backdrop-filter: blur(2px);
+    align-content: center;
+    text-align: right;
+    position: relative;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 26px;
+    display: inline;
+    text-align: center;
+    padding: 55px;
+    text-shadow: 0.1em 0.1em 0.2em black
+}
+
+#my-galaxy {
+    height: 470px;
+    margin-right: 30px;
+    float: right;
+    display: inline;
+}
+
+#ola{
+    font-size: 30px;
+}
+
+.apresentacao{
+    display: inline;
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 60px;
+    width: 340px;
+    height: 180px;
+    padding: 70px;
+    
+    background-color: rgba(255,255,255,0.05);
+    box-shadow: inset 8px -9px 7px
+        rgba(255,255,255, 0.25);
+    backdrop-filter: blur(-9px);
+    border-radius: 82px;
+
+    font-family: 'Secular One', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+#ovini{
+    height: 70px;
+    width: 88px;
+    margin-top: -13%;
+    margin-left: -50%;
+    position: absolute;
+}
+
+#botao-sobre{
+    position: absolute;
+    margin-top: 10%;
+    margin-left: -19%;
+    height: 60px;
+    width: 190px;
+    text-align: center;
+
+    border: .25em solid rgb(217, 176, 255);
+    padding: 1em 3em;
+    color: rgb(217, 176, 255);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(100, 61, 136);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em rgb(217, 176, 255),
+        0 0 4em 1em rgba(191, 123, 255, 0.781),
+        inset 0 0 .75em .25em rgb(217, 176, 255);
+    text-shadow: 0 0 .5em rgb(217, 176, 255);
+}
+
+#habilidades{
+    float: left;
+    margin-left: 20px;
+    
+}
+
+ul{
+    list-style-type: disc;
+    height: auto;
+    line-height: 35px;
+    display: block;
+    margin-top: -160px;  
+    margin-bottom: 0%;
+}
+
+#cursos{
+    float: right;
+    margin-right: 20px;
+}
+
+h5{
+    text-align: left;
+    display: block;
+    margin-top: 2%;
+    margin-left: 3%;
+
+    color: white;
+    font-size: 35px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.img-projetos{
+    height: 300px;
+    padding-top: 70px;
+    justify-content: center;
+    text-align: center;
+}
+
+.nomes-projetos{
+    display: flex;
+    justify-content: center;
+    text-align: center;   
+    height: auto;
+    margin-top: auto;
+    font-size: 35px;
+}
+
+.ferramentas, .cursos{
+    background-color: rgba(255,255,255,0.05);
+    box-shadow: inset -8px -9px 7px
+        rgba(255,255,255, 0.25);
+    backdrop-filter: blur(-9px);
+    border-radius: 82px;
+    font-family: 'Secular One', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    line-height: 150%;
+
+    
+}
+
+.habilidades{
+    display: inline-block;
+    justify-content: center;
+    width: auto;
+    height: 300px;
+}
+
+.ferramentas{
+    float: left;
+}
+
+.cursos{
+    float: right;
+}
