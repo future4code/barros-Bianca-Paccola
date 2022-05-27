@@ -49,24 +49,27 @@ h2{
     color: white;
     margin-top: 20px;
     margin-bottom: 10px;
+    text-decoration: underline;
 }
 
 
 .texto{
-    margin-top: 20vh;
+    margin-top: 20px;
     text-align: center;
     width: 550px;
-    margin-right: 5%;
+    margin-right: 3%;
+    margin-left: 10px;
 
     float: right;
     height: 100vh;
     height: fit-content;
+
+    font-family: 'Secular One', sans-serif;
 }
 
 img{
     position: fixed;
     margin-top: 17vh;
-    margin-left: 15px;
 }
 
 #voltar{

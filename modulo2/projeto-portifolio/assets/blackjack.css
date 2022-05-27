@@ -49,14 +49,17 @@ h2, h3{
     color: white;
     margin-top: 20px;
     margin-bottom: 10px;
+    text-decoration: underline;
 }
 
 
 .texto{
     text-align: center;
     width: 550px;
-    margin-right: 10%;
+    margin-right: 6%;
     float: right;
+
+    font-family: 'Secular One', sans-serif;
 
 }
 
