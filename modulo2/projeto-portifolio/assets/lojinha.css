@@ -28,10 +28,13 @@ a{
     text-decoration: none;
     font-family: 'Dancing Script', cursive;
     font-size: 26px;
-    display: inline;
     text-align: center;
     padding: 0px 55px 0px 55px;
     text-shadow: 0.1em 0.1em 0.2em black
+}
+
+main{
+    padding-bottom: 5%;
 }
 
 p{
@@ -69,13 +72,11 @@ img{
     margin-top: 8%;
     height: fit-content;
 }
-
 footer{
-    position: absolute;
-    display: block;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-    background: linear-gradient(180deg, rgba(255,252,252,0)0%, rgba(255,252,252,0.3)100%);
-    backdrop-filter: blur(2px);
+        width: 100%;
+        height: fit-content;
+        bottom: 0;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(255,252,252,0)0%, rgba(255,252,252,0.3)100%);
+        backdrop-filter: blur(2px);
 }
