@@ -87,8 +87,6 @@ a{
 }
 
 footer{
-    position: absolute;
-    display: block;
     width: 100%;
     height: fit-content;
     bottom: 0;

@@ -70,15 +70,10 @@ img{
     height: fit-content;
 }
 
-#voltar{
-    justify-content: end;
-}
-
 footer{
     position: absolute;
     display: block;
     width: 100%;
-    height: fit-content;
     bottom: 0;
     text-align: center;
     background: linear-gradient(180deg, rgba(255,252,252,0)0%, rgba(255,252,252,0.3)100%);
