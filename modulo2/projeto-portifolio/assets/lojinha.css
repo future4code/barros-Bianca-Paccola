@@ -33,55 +33,41 @@ a{
     text-shadow: 0.1em 0.1em 0.2em black
 }
 
-main{
-    padding-bottom: 5%;
-}
-
 p{
-    font-size: 20px;
     color: white;
     line-height: 30px;
-    border-top: 30vh;
-
-    display: inline;
-    width: 30px;
+    font-family: 'Secular One', sans-serif;
+    font-size: 20px;
 }
 
 h2{
+    font-size: 25px;
     color: white;
-    margin-top: 20px;
-    margin-bottom: 10px;
     text-decoration: underline;
-}
-
-
-.texto{
-    margin-top: 3%;
-    text-align: center;
-    width: 500px;
-    margin-right: 3%;
-
-    float: right;
-    height: 100vh;
-    height: fit-content;
-
     font-family: 'Secular One', sans-serif;
 }
 
+.texto{
+    display: inline-block;
+    width: 400px;
+    text-align: center;
+    margin: 15px 5px 10px 600px;
+}
+
 img{
-    margin-top: 8%;
-    height: fit-content;
+    position: absolute;
+    top: 120px;
 }
 
 #conteudo{
-    min-height: 80vh; 
+    min-height: 90vh; 
 }
 
 footer{
-        width: 100%;
-        height: fit-content;
-        bottom: 0;
-        text-align: center;
-        background: linear-gradient(180deg, rgba(255,252,252,0)0%, rgba(255,252,252,0.3)100%);
-        backdrop-filter: blur(2px);
+    width: 100%;
+    height: fit-content;
+    bottom: 0;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255,252,252,0)0%, rgba(255,252,252,0.3)100%);
+    backdrop-filter: blur(2px);
 }
