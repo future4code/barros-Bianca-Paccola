@@ -2,15 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
 * {
+    height: 100%;
     margin: 0;
     padding: 0;
-    border: 0;
 }
 
-body{
+html{
     background-image: linear-gradient(219deg, rgba(0,0,0,1) 0%, rgba(38,31,49,1) 55%, rgba(131,89,103,1) 100%);
-    height: 100vh;
-    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header{
@@ -21,7 +20,6 @@ header{
     backdrop-filter: blur(2px);
     align-content: center;
     text-align: right;
-    position: relative;
 }
 
 a{
@@ -31,13 +29,12 @@ a{
     font-size: 26px;
     display: inline;
     text-align: center;
-    padding: 55px;
+    padding: 0px 55px 0px 55px;
     text-shadow: 0.1em 0.1em 0.2em black
 }
 
 #my-galaxy {
-
-    margin-right: 30px;
+    margin-right: 1%;
     float: right;
     display: inline;
 }
@@ -49,7 +46,7 @@ a{
 .apresentacao{
     display: inline;
     position: absolute;
-    margin-left: 80px;
+    margin-left: 5%;
     margin-top: 60px;
     width: 340px;
     height: 180px;
@@ -96,4 +93,15 @@ a{
         0 0 4em 1em rgba(191, 123, 255, 0.781),
         inset 0 0 .75em .25em rgb(217, 176, 255);
     text-shadow: 0 0 .5em rgb(217, 176, 255);
+}
+
+footer{
+    position: static;
+    display: block;
+    width: 100%;
+    height: fit-content;
+    bottom: 0;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255,252,252,0)0%, rgba(255,252,252,0.3)100%);
+    backdrop-filter: blur(2px);
 }

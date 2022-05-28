@@ -30,7 +30,7 @@ a{
     font-size: 26px;
     display: inline;
     text-align: center;
-    padding: 55px;
+    padding: 0px 55px 0px 55px;
     text-shadow: 0.1em 0.1em 0.2em black
 }
 
