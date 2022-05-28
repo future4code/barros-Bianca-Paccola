@@ -53,6 +53,10 @@ a{
     font-size: 40px;
 }
 
+#conteudo{
+    min-height: 80vh; 
+}
+
 footer{
     width: 100%;
     height: fit-content;

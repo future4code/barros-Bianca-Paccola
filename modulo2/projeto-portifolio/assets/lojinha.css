@@ -72,6 +72,11 @@ img{
     margin-top: 8%;
     height: fit-content;
 }
+
+#conteudo{
+    min-height: 80vh; 
+}
+
 footer{
         width: 100%;
         height: fit-content;

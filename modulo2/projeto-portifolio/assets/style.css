@@ -86,6 +86,10 @@ a{
     text-shadow: 0 0 .5em rgb(217, 176, 255);
 }
 
+#conteudo{
+    min-height: 90vh; 
+}
+
 footer{
     width: 100%;
     height: fit-content;
