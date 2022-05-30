@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(219deg, rgba(0,0,0,1) 0%, rgba(38,31,49,1) 55%, rgba(131,89,103,1) 100%);
+    background-attachment: fixed;
+
+}
+
+header{
+    width: 100%;
+    height: 50px;
+    display: block;
+    background: linear-gradient(180deg, rgba(255,252,252,0.3)0%, rgba(255,252,252,0)100%);
+    backdrop-filter: blur(2px);
+    align-content: center;
+    text-align: right;
+    position: relative;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 26px;
+    display: inline;
+    text-align: center;
+    padding: 0px 55px 0px 55px;
+    text-shadow: 0.1em 0.1em 0.2em black
+}
+
+ul{
+    list-style-type: none;
+    line-height: 50px;
+}
+
+h5{
+    text-align: left;
+    display: inline;
+    padding: 30px;
+
+    color: white;
+    font-size: 35px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.ferramentas, .cursos{
+    background-color: rgba(255,255,255,0.05);
+    box-shadow: inset 8px -9px 7px
+        rgba(255,255,255, 0.25);
+    backdrop-filter: blur(-9px);
+    border-radius: 82px;
+    font-family: 'Secular One', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    padding: 60px;
+    
+}
+
+.habilidades{
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    padding: 50px;
+    align-items: center;
+}
+
+#conteudo{
+    min-height: 90vh; 
+}
+
+footer{
+    width: 100%;
+    height: fit-content;
+    bottom: 0;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255,252,252,0)0%, rgba(255,252,252,0.3)100%);
+    backdrop-filter: blur(2px);
+}
