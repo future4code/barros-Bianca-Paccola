@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.App {
+  text-align: center;
+}
+
+#foto{
+  margin: 10px;
+  max-width: 250px;
+  border-radius: 50%;
+  background-color: #61DAFB;
+  outline: none;
+  box-shadow: 0 0 1em .25em #61DAFB,
+         0 0 4em 1em white,
+         inset 0 0 .75em .25em #61DAFB;
+}
+
+#logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+h1, h2, h3{
+  margin: 10px;
+}
+
+span{
+  font-family: 'Dancing Script', cursive;
+}
+
+.botao{
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
+  border: .25em solid #61DAFB;
+  padding: 1em 3em;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #61DAFB;
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em .25em #61DAFB,
+         0 0 4em 1em white,
+         inset 0 0 .75em .25em #61DAFB;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  #logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
