@@ -1,0 +1,18 @@
+.smallcards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.smallcard-container{
+    display: flex;
+    border: 1px solid black;  
+    padding: 20px 20px;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 545px;
+}
+
+.smallcard-container > img{
+    width: 20px;
+}
