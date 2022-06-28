@@ -1,76 +1,91 @@
-import React, {useState} from 'react'
-import './style.css'
+import React, { useState } from "react";
+import "./style.css";
 
-import {IconeComContador} from '../IconeComContador/IconeComContador'
-import iconeCoracaoBranco from '../../img/favorite-white.svg'
-import iconeCoracaoPreto from '../../img/favorite.svg'
-import iconeComentario from '../../img/comment_icon.svg'
-import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import { IconeComContador } from "../IconeComContador/IconeComContador";
+import iconeCoracaoBranco from "../../img/favorite-white.svg";
+import iconeCoracaoPreto from "../../img/favorite.svg";
+import iconeComentario from "../../img/comment_icon.svg";
+import { SecaoComentario } from "../SecaoComentario/SecaoComentario";
+import iconeMarcar from "../../img/bookmark.svg";
+import iconeMarcado from "../../img/bookmark-black.svg";
 
+function Post(props) {
+  const [numeroCurtidas, setnumeroCurtidas] = useState(0);
+  const [curtido, setCurtido] = useState(false);
+  const [comentando, setComentando] = useState(false);
+  const [numeroComentarios, setNumeroComentarios] = useState(0);
+  const [valorInput, setValorInput] = useState("");
+  const [marcado, setMarcado] = useState(false);
 
+  let iconeMarcacao;
 
-function Post(props){
+  if (marcado) {
+    iconeMarcacao = iconeMarcado;
+  } else {
+    iconeMarcacao = iconeMarcar;
+  }
 
-  const [numeroCurtidas, setnumeroCurtidas] = useState (0)
-  const [curtido, setCurtido] = useState(false)
-  const [comentando, setComentando] = useState(false)
-  const [numeroComentarios, setNumeroComentarios] = useState(0)
-  const [valorInput, setValorInput] = useState('')
+  const onClickMarcado = () => {
+    setMarcado(!marcado);
+  };
 
   const onChangeComentario = (event) => {
-    setValorInput(event.target.value)
-  }
+    setValorInput(event.target.value);
+  };
 
   const onClickCurtida = () => {
-    setCurtido(!curtido)
-    if(!curtido){
-      setnumeroCurtidas(numeroCurtidas + 1)  
+    setCurtido(!curtido);
+    if (!curtido) {
+      setnumeroCurtidas(numeroCurtidas + 1);
+    } else if (curtido) {
+      setnumeroCurtidas(numeroCurtidas - 1);
     }
-      else if (curtido) {
-        setnumeroCurtidas(numeroCurtidas - 1)
-      }
-  }
-  
+  };
+
   const onClickComentario = () => {
-    setComentando(!comentando)
-    if(comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario}/>
+    setComentando(!comentando);
+    if (comentando) {
+      componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} />;
     }
-    console.log(comentando)
-  }
-  
+    console.log(comentando);
+  };
+
   const aoEnviarComentario = () => {
-    setComentando(false)
-    setValorInput(valorInput)
-    if(!valorInput){
-    setNumeroComentarios(numeroComentarios + 1)
+    setComentando(false);
+    setValorInput(valorInput);
+    if (!valorInput) {
+      setNumeroComentarios(numeroComentarios + 1);
     }
+  };
+
+  let iconeCurtida;
+
+  if (curtido) {
+    iconeCurtida = iconeCoracaoPreto;
+  } else {
+    iconeCurtida = iconeCoracaoBranco;
   }
 
-  let iconeCurtida
+  let componenteComentario;
 
-    if(curtido) {
-      iconeCurtida = iconeCoracaoPreto
-    } else {
-      iconeCurtida = iconeCoracaoBranco
-    }
+  if (comentando) {
+    componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} />;
+  }
 
-    let componenteComentario
-
-    if(comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario}/>
-    }
-
-  return(
-    <div className = 'PostContainer'>
-      <div className = 'PostHeader'>
-        <img className = 'UserPhoto' src={props.fotoUsuario} alt={'Imagem do usuario'}/>
+  return (
+    <div className="PostContainer">
+      <div className="PostHeader">
+        <img
+          className="UserPhoto"
+          src={props.fotoUsuario}
+          alt={"Imagem do usuario"}
+        />
         <p>{props.nomeUsuario}</p>
       </div>
 
-      <img className = 'PostPhoto'src={props.fotoPost} alt={'Imagem do post'}/>
+      <img className="PostPhoto" src={props.fotoPost} alt={"Imagem do post"} />
 
-      <div className = 'PostFooter'>
+      <div className="PostFooter">
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={onClickCurtida}
@@ -82,11 +97,12 @@ function Post(props){
           onClickIcone={onClickComentario}
           valorContador={numeroComentarios}
         />
+
+        <IconeComContador icone={iconeMarcacao} onClickIcone={onClickMarcado} />
       </div>
       {componenteComentario}
     </div>
-  )
+  );
 }
 
-
-export default Post
+export default Post;
