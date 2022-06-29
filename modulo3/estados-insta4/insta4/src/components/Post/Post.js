@@ -18,7 +18,7 @@ function Post(props) {
   const [curtido, setCurtido] = useState(false);
   const [comentando, setComentando] = useState(false);
   const [numeroComentarios, setNumeroComentarios] = useState(0);
-  const [valorInput, setValorInput] = useState('');
+  const [comentario, setValorInput] = useState('');
   const [marcado, setMarcado] = useState(false);
   const [compartilhar, setCompartilhar] = useState(false)
 
@@ -35,7 +35,7 @@ function Post(props) {
   };
 
   const handleComentario = (e) => {
-    setValorInput(e.state.value);
+    setValorInput(e.target.value);
   };
 
   const onClickCurtida = () => {
@@ -50,14 +50,18 @@ function Post(props) {
   const onClickComentario = () => {
     setComentando(!comentando);
     if (comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} onChangeComentario={handleComentario} valorInput={valorInput}/>;
+      componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario}  valorInput={comentario}/>;
     }
+    setValorInput('')
     console.log(comentando);
   };
 
   const aoEnviarComentario = () => {
     setComentando(false);
+    if (comentario !== ''){
     setNumeroComentarios(numeroComentarios + 1);
+    }
+    console.log(comentario)
   };
 
 
@@ -82,7 +86,7 @@ function Post(props) {
   let componenteComentario;
 
   if (comentando) {
-    componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} />;
+    componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} onChangeComentario={handleComentario} />;
   }
 
   return (
