@@ -31,7 +31,7 @@ export const Main = styled.main`
         gap: 30px;
         margin-bottom: 10px;
 
-        div{
+        label{
             display: flex;
             gap: 10px;
         }
