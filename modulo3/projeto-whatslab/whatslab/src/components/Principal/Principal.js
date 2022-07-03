@@ -8,6 +8,7 @@ function Principal(Props) {
 
 const [inputRemetente, setInputRemetente] = useState("")
 const [inputMsg, setInputMsg] = useState("")
+const [mensagem, setInputMensagem] = useState(false)
 
 const handleInputRemetente = (event) => {
     setInputRemetente(event.target.value)
@@ -19,10 +20,15 @@ const handleInputMsg = (event) => {
 
 let balaoMensagem
 
+if (mensagem) {
+    balaoMensagem = <MensagemEnviada remetente={inputRemetente} msg={inputMsg}/>
+}
+
 function EnviarMsg(e) { 
     e.preventDefault()
-        balaoMensagem = <MensagemEnviada remetente={inputRemetente} msg={inputMsg}></MensagemEnviada>
-    console.log(inputMsg, inputRemetente);
+    if (inputMsg !== "" && inputRemetente !== ""){
+    setInputMensagem(!mensagem)
+    }
   }
 
     return ( 

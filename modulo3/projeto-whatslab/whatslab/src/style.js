@@ -36,11 +36,16 @@ export const Footer = styled.footer`
         text-align: center;
     }
 `
-// export const BalaoMsg = styled.span`
-//     background-color: red;
-//     height: 200px;
-//     width: 200px;
-// `
+export const BalaoMsg = styled.span`
+    background-color:  #FFA500;
+    align-self: flex-end;
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 30px;
+    max-height: 100px;
+    max-width: 400px;
+`
 
 export const FormMsg = styled.form`
         display: flex;

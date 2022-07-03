@@ -21,7 +21,7 @@ export function Inputs(Props) {
           onChange={Props.handleMsg}
         ></textarea>
       </label>
-      <button onClick={Props.enviar}>Enviar</button>
+      <input type='submit' onClick={Props.enviar} value='Enviar' />
     </FormMsg>
   );
 }
