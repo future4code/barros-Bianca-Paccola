@@ -41,7 +41,7 @@ export const BalaoMsg = styled.span`
     align-self: flex-end;
     text-align: center;
     margin: 20px;
-    padding: 5px;
+    padding: 15px;
     border-radius: 30px;
     max-height: 100px;
     max-width: 400px;

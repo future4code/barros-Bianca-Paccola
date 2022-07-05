@@ -3,7 +3,7 @@ import { FormMsg } from "../../style";
 
 export function Inputs(Props) {
   return (
-    <FormMsg>
+    <FormMsg onSubmit={Props.enviar}>
       <label>
         Remetente:
         <input
@@ -16,12 +16,13 @@ export function Inputs(Props) {
       <label>
         Msg:
         <textarea
+        placeholder="Digite sua mensagem..."
           rows="3"
           value={Props.msg}
           onChange={Props.handleMsg}
         ></textarea>
       </label>
-      <input type='submit' onClick={Props.enviar} value='Enviar' />
+      <input type='submit' value='Enviar' />
     </FormMsg>
   );
 }

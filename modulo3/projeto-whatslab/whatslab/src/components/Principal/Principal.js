@@ -21,13 +21,14 @@ const handleInputMsg = (event) => {
 let balaoMensagem
 
 if (mensagem) {
-    balaoMensagem = <MensagemEnviada remetente={inputRemetente} msg={inputMsg}/>
+    balaoMensagem = <MensagemEnviada remetente={inputRemetente} msg={inputMsg} doispontos={": "}/>
 }
 
 function EnviarMsg(e) { 
     e.preventDefault()
     if (inputMsg !== "" && inputRemetente !== ""){
-    setInputMensagem(!mensagem)
+        balaoMensagem = <MensagemEnviada remetente={inputRemetente} msg={inputMsg}/>
+        setInputMensagem(!mensagem)
     }
   }
 
