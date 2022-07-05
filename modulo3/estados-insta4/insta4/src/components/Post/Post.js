@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./style.js";
+import { PostContainer, PostHeader, PostFooter, UserPhoto, PostPhoto } from "./style.js";
 
 import { IconeComContador } from "../IconeComContador/IconeComContador";
 import iconeCoracaoBranco from "../../img/favorite-white.svg";
@@ -90,19 +91,18 @@ function Post(props) {
   }
 
   return (
-    <div className="PostContainer">
-      <div className="PostHeader">
-        <img
-          className="UserPhoto"
+    <PostContainer>
+      <PostHeader>
+        <UserPhoto
           src={props.fotoUsuario}
           alt={"Imagem do usuario"}
         />
         <p>{props.nomeUsuario}</p>
-      </div>
+      </PostHeader>
 
-      <img className="PostPhoto" src={props.fotoPost} alt={"Imagem do post"} />
+      <PostPhoto src={props.fotoPost} alt={"Imagem do post"} />
 
-      <div className="PostFooter">
+      <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={onClickCurtida}
@@ -125,10 +125,10 @@ function Post(props) {
         onClickIcone={onClickCompartilhar}
         />   
         
-      </div>
+      </PostFooter>
       {componenteComentario}
       {componenteCompartilhar}
-    </div>
+    </PostContainer>
   );
 }
 

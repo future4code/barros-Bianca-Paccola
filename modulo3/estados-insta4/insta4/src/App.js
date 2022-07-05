@@ -1,7 +1,24 @@
 import React from 'react';
 import Post from './components/Post/Post';
-import './style.css'
+import './style.js'
+import {MainContainer} from './style.js'
+import { createGlobalStyle } from 'styled-components';
 
+const GlobalStyle = createGlobalStyle`
+body {
+margin: 0;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+`
 
 function App() {
 
@@ -26,13 +43,14 @@ function App() {
   ]
 
 return(
-  <div className='MainContainer'>
+  <MainContainer>
+    <GlobalStyle/>
     {
       postagem.map((item)=> {
       return <Post nomeUsuario={item.nomeUsuario} fotoUsuario={item.fotoUsuario} fotoPost={item.fotoPost} />
     })
    }
-  </div>
+  </MainContainer>
 )
 
 }
