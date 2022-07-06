@@ -42,14 +42,13 @@ function App() {
     }
   ]
 
+  const postagensMap = postagem.map((item)=> {
+    return <Post nomeUsuario={item.nomeUsuario} fotoUsuario={item.fotoUsuario} fotoPost={item.fotoPost} />})
+
 return(
   <MainContainer>
     <GlobalStyle/>
-    {
-      postagem.map((item)=> {
-      return <Post nomeUsuario={item.nomeUsuario} fotoUsuario={item.fotoUsuario} fotoPost={item.fotoPost} />
-    })
-   }
+      {postagensMap}
   </MainContainer>
 )
 
