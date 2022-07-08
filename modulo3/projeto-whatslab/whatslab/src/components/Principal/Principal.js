@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {BalaoCinza, BalaoLaranja, Main} from '../../style'
 import {MensagemEnviada} from '../MensagemEnviada/MensagemEnviada'
-
 import {Inputs} from '../Inputs/Inputs'
 
 
@@ -12,14 +11,12 @@ const [inputRemetente, setInputRemetente] = useState("")
 const [inputMsg, setInputMsg] = useState("")
 const [mensagem, setInputMensagem] = useState(false)
 
-// const [controlaCorBalao, setControlaCorBalao] = useState(false)
-
 //seta o estado inicial do array que vai gerar as postagens, cria um array vazio
 const [listaMensagens, setListaMensagens] = useState([])
 
 //pega o que é preenchido no input de remetente
 const handleInputRemetente = (event) => {
-    setInputRemetente(event.target.value)
+    setInputRemetente(event.target.value.toLowerCase())
 }
 
 //pega o que é preenchido no input de mensagem
@@ -38,7 +35,7 @@ function EnviarMsg(e) {
         setInputMensagem(!mensagem)
    
         //cria un novo array, espelhado no original e adicionando mais um objeto com os dados que foram captados nos inputs
-        const feedAtualizado = [...listaMensagens, {remetente:inputRemetente , mensagem: inputMsg}]
+        const feedAtualizado = [...listaMensagens, {remetente:inputRemetente, mensagem: inputMsg}]
 
         //atualiza o array original com a nova mensagem(objeto)
         setListaMensagens(feedAtualizado)
@@ -46,12 +43,6 @@ function EnviarMsg(e) {
         //retorna os inputs ao estado inicial, vazios, para que possam receber novos dados
         setInputRemetente('')
         setInputMsg('')
-
-        // if (inputRemetente == 'eu'){
-        //     setControlaCorBalao(true)
-        // } else {
-        //     setControlaCorBalao(false)
-        // }
     }
 }
 
