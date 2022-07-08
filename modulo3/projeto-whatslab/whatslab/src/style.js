@@ -25,6 +25,13 @@ export const Main = styled.main`
         align-items: center;
         justify-content:end;
     }
+
+    div{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
 `
 export const Footer = styled.footer`
     height: 5vh;
@@ -35,16 +42,6 @@ export const Footer = styled.footer`
         margin: 0;
         text-align: center;
     }
-`
-export const BalaoMsg = styled.span`
-    background-color:  #FFA500;
-    align-self: flex-end;
-    text-align: center;
-    margin: 20px;
-    padding: 15px;
-    border-radius: 30px;
-    max-height: 100px;
-    max-width: 400px;
 `
 
 export const FormMsg = styled.form`

@@ -1,43 +1,73 @@
 import React, {useState} from 'react'
-import {Main} from '../../style'
+import {BalaoCinza, BalaoLaranja, Main} from '../../style'
 import {MensagemEnviada} from '../MensagemEnviada/MensagemEnviada'
+
 import {Inputs} from '../Inputs/Inputs'
 
 
 function Principal(Props) {
 
+//seta o estado inicial dos inputs do form
 const [inputRemetente, setInputRemetente] = useState("")
 const [inputMsg, setInputMsg] = useState("")
 const [mensagem, setInputMensagem] = useState(false)
 
+// const [controlaCorBalao, setControlaCorBalao] = useState(false)
+
+//seta o estado inicial do array que vai gerar as postagens, cria um array vazio
+const [listaMensagens, setListaMensagens] = useState([])
+
+//pega o que é preenchido no input de remetente
 const handleInputRemetente = (event) => {
     setInputRemetente(event.target.value)
 }
 
+//pega o que é preenchido no input de mensagem
 const handleInputMsg = (event) => {
     setInputMsg(event.target.value)
 }
 
-let balaoMensagem
+//evento de clique
+function EnviarMsg(e) { 
 
-if (mensagem) {
-    balaoMensagem = <MensagemEnviada remetente={inputRemetente} msg={inputMsg} doispontos={": "}/>
+    // previne que o envio do fomulário recarregue a página
+    e.preventDefault()
+
+    //entra aqui se os ao clicar os inputs não estiverem vazios
+    if (inputMsg !== "" && inputRemetente !== ""){
+        setInputMensagem(!mensagem)
+   
+        //cria un novo array, espelhado no original e adicionando mais um objeto com os dados que foram captados nos inputs
+        const feedAtualizado = [...listaMensagens, {remetente:inputRemetente , mensagem: inputMsg}]
+
+        //atualiza o array original com a nova mensagem(objeto)
+        setListaMensagens(feedAtualizado)
+
+        //retorna os inputs ao estado inicial, vazios, para que possam receber novos dados
+        setInputRemetente('')
+        setInputMsg('')
+
+        // if (inputRemetente == 'eu'){
+        //     setControlaCorBalao(true)
+        // } else {
+        //     setControlaCorBalao(false)
+        // }
+    }
 }
 
-function EnviarMsg(e) { 
-    e.preventDefault()
-    if (inputMsg !== "" && inputRemetente !== ""){
-        balaoMensagem = <MensagemEnviada remetente={inputRemetente} msg={inputMsg}/>
-        setInputMensagem(!mensagem)
-    }
-  }
+    //mapeia os objetos do array para posteriomente serem renderizados na tela
+  const feedMap = listaMensagens.map((item)=> {
+        return <MensagemEnviada remetente={item.remetente} doispontos=':' msg={item.mensagem} ></MensagemEnviada>
+  })
 
     return ( 
         <div>
             <Main>
                 <aside></aside>
                 <section>
-                {balaoMensagem}
+                <div>
+                    {feedMap}
+                </div>
                 <Inputs remetente= {inputRemetente}
                     handleRemetente = {handleInputRemetente}
                     msg = {inputMsg}
