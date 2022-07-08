@@ -46,10 +46,21 @@ function EnviarMsg(e) {
     }
 }
 
+//função chamada no double clieque que excluir a mensagem
+const apagarMsg = (indexRmv) => {
+    const feedAtualizadoRmv = listaMensagens.filter((item, index)=>{
+        return index !== indexRmv //filtra a lista de mensagens, tirando o indice da mensagem removida
+    })
+    //atualiza a lista de mensagens
+    setListaMensagens(feedAtualizadoRmv)
+}
+
     //mapeia os objetos do array para posteriomente serem renderizados na tela
-  const feedMap = listaMensagens.map((item)=> {
-        return <MensagemEnviada remetente={item.remetente} doispontos=':' msg={item.mensagem} ></MensagemEnviada>
+  const feedMap = listaMensagens.map((item, index)=> {
+        return <MensagemEnviada key={index} remetente={item.remetente} doispontos=':' msg={item.mensagem} apagar={()=>{apagarMsg(index)}}></MensagemEnviada>
+        
   })
+
 
     return ( 
         <div>

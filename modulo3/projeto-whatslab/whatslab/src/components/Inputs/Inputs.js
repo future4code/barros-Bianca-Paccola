@@ -20,7 +20,8 @@ export function Inputs(Props) {
           rows="3"
           value={Props.msg}
           onChange={Props.handleMsg}
-        ></textarea>
+          maxLength="150"
+          ></textarea>
       </label>
       <input type='submit' value='Enviar' />
     </FormMsg>

@@ -30,8 +30,28 @@ export const Main = styled.main`
         display: flex;
         width: 100%;
         flex-direction: column;
-        overflow-y: scroll;
+        overflow-y: auto;
+        overflow-wrap: break-word;
+        
+    ::-webkit-scrollbar {
+        width: 15px;
     }
+
+    ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    }
+ 
+    ::-webkit-scrollbar-thumb {
+    background: #45525B; 
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background: #FD7D02; 
+    }
+
+}
 `
 export const Footer = styled.footer`
     height: 5vh;

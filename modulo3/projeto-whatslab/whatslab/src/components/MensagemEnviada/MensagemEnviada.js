@@ -5,7 +5,7 @@ const Balao = styled.span`
     align-self: ${props => props.remetente === "eu" ? "flex-start" : "flex-end"};
     text-align: center;
     margin: 20px;
-    padding: 15px;
+    padding: 10px;
     border-radius: 30px;
     max-height: 100px;
     max-width: 400px;
@@ -15,8 +15,8 @@ const Balao = styled.span`
 export function MensagemEnviada(props) {
 
     return (
-            <Balao remetente = {props.remetente}>
-            <p> <strong>{props.remetente}{props.doispontos}</strong> {props.msg} </p>
+            <Balao remetente = {props.remetente} onDoubleClick={props.apagar}>
+            <p> <strong>{props.remetente}{props.doispontos}</strong> {props.msg}</p> 
             </Balao>
     )
 }
