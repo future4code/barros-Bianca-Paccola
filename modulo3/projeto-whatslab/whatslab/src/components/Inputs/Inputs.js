@@ -1,17 +1,17 @@
 import React from "react";
 import { FormMsg } from "../../style";
 
-export function Inputs(Props) {
+export function Inputs(props) {
 
   return (
-    <FormMsg onSubmit={Props.enviar}>
+    <FormMsg onSubmit={props.enviar}>
       <label>
         Remetente:
         <input
           type="text"
           id="remetente"
-          value={Props.remetente}
-          onChange={Props.handleRemetente}
+          value={props.remetente}
+          onChange={props.handleRemetente}
           autoFocus
         ></input>
       </label>
@@ -20,9 +20,9 @@ export function Inputs(Props) {
         <textarea
         placeholder="Digite sua mensagem..."
           rows="3"
-          value={Props.msg}
-          onChange={Props.handleMsg}
-          onKeyPress={Props.teclaEnter}
+          value={props.msg}
+          onChange={props.handleMsg}
+          onKeyPress={props.teclaEnter}
           ></textarea>
       </label>
       <input type='submit' value='Enviar' />

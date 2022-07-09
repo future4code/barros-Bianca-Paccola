@@ -1,7 +1,6 @@
 import React from "react"
 import {Balao} from '../../style'
 
-
 export function MensagemEnviada(props) {
 
     return (
