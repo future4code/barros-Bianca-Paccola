@@ -76,3 +76,15 @@ export const FormMsg = styled.form`
             gap: 10px;
         }
 `
+
+export const Balao = styled.span`
+    align-self: ${props => props.remetente === "eu" ? "flex-end" : "flex-start"};
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    max-height: 100px;
+    max-width: 400px;
+    background-color: ${props => props.remetente === "eu" ? "#FFA500" : "#A8BAC5"};
+    cursor: pointer;
+`

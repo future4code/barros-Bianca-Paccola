@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {BalaoCinza, BalaoLaranja, Main} from '../../style'
+import {Main} from '../../style'
 import {MensagemEnviada} from '../MensagemEnviada/MensagemEnviada'
 import {Inputs} from '../Inputs/Inputs'
 
@@ -48,11 +48,13 @@ function EnviarMsg(e) {
 
 //função chamada no double clieque que excluir a mensagem
 const apagarMsg = (indexRmv) => {
+    if(window.confirm("Deseja apagar esta mensagem???")){
     const feedAtualizadoRmv = listaMensagens.filter((item, index)=>{
         return index !== indexRmv //filtra a lista de mensagens, tirando o indice da mensagem removida
-    })
-    //atualiza a lista de mensagens
+        }) 
+            //atualiza a lista de mensagens
     setListaMensagens(feedAtualizadoRmv)
+    }
 }
 
     //mapeia os objetos do array para posteriomente serem renderizados na tela
@@ -61,6 +63,12 @@ const apagarMsg = (indexRmv) => {
         
   })
 
+  //função identificar a tela enter no onKeyPress 
+  const handleKeyPress = (event) => {
+    if(event.key === 'Enter'){
+        EnviarMsg(event)
+    }
+  }
 
     return ( 
         <div>
@@ -75,6 +83,7 @@ const apagarMsg = (indexRmv) => {
                     msg = {inputMsg}
                     handleMsg = {handleInputMsg}
                     enviar = {EnviarMsg}
+                    teclaEnter = {handleKeyPress}
                 ></Inputs>
                 </section>
                 <aside></aside>
