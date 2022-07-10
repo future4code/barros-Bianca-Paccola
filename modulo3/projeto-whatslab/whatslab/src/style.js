@@ -25,7 +25,7 @@ export const Main = styled.main`
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content:end;
+        justify-content: flex-end;
 
         @media(max-width: 700px){
         min-height: 85vh;
@@ -38,6 +38,7 @@ export const Main = styled.main`
         flex-direction: column;
         overflow-y: auto;
         overflow-wrap: break-word;
+        min-height: 62vh;
         
         ::-webkit-scrollbar {
             width: 15px;
@@ -109,6 +110,7 @@ export const FormMsg = styled.form`
             flex-direction: column;
             align-items: center;
             margin-top: 5px;
+            gap: 8px;
         }
 
 `
