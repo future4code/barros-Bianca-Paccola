@@ -23,7 +23,7 @@ function Principal(Props) {
 
   //pega o que é preenchido no input de remetente
   const handleInputRemetente = (event) => {
-    setInputRemetente(event.target.value.toLowerCase());
+    setInputRemetente(event.target.value);
   };
 
   //pega o que é preenchido no input de mensagem
@@ -43,7 +43,7 @@ function Principal(Props) {
       //cria un novo array, espelhado no original e adicionando mais um objeto com os dados que foram captados nos inputs
       const feedAtualizado = [
         ...listaMensagens,
-        { remetente: inputRemetente, mensagem: inputMsg },
+        { remetente: inputRemetente.toLowerCase().trim(), mensagem: inputMsg },
       ];
 
       //atualiza o array original com a nova mensagem(objeto)
