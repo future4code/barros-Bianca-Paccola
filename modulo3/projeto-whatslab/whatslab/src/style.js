@@ -5,6 +5,7 @@ export const Header1 = styled.header`
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 
     img{
         height: 100%;
