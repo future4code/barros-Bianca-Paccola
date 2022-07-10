@@ -22,6 +22,7 @@ export function Inputs(props) {
           value={props.msg}
           onChange={props.handleMsg}
           onKeyPress={props.teclaEnter}
+          maxLength={150}
         ></textarea>
       </label>
       <input type="submit" value="Enviar" />
