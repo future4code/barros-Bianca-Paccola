@@ -2,7 +2,6 @@ import React from "react";
 import { FormMsg } from "../../style";
 
 export function Inputs(props) {
-
   return (
     <FormMsg onSubmit={props.enviar}>
       <label>
@@ -18,14 +17,14 @@ export function Inputs(props) {
       <label>
         Msg:
         <textarea
-        placeholder="Digite sua mensagem..."
+          placeholder="Digite sua mensagem..."
           rows="3"
           value={props.msg}
           onChange={props.handleMsg}
           onKeyPress={props.teclaEnter}
-          ></textarea>
+        ></textarea>
       </label>
-      <input type='submit' value='Enviar' />
+      <input type="submit" value="Enviar" />
     </FormMsg>
   );
 }
