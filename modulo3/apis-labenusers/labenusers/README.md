@@ -13,7 +13,7 @@ Códigos usados em **React** :
 - useState, 
 - renderização condicional, 
 - map/filter para renderização de listas, 
-- componentes e props
+- componentes e props.
 
 
 Documentação da API: [Labenusers](https://documenter.getpostman.com/view/7549981/SzfCT5G2?version=latest#7bf79c51-34eb-4029-96ab-46366d2143d1)
