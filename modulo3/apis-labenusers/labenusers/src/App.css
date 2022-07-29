@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+}
+
+.App{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+   padding: 5px; 
+   margin-left: 10px;
+   border-radius: 5px;
+}
+
+input {
+    margin-left: 5px;
+
+}
+
+fieldset{
+    width: 730px;
+    padding: 50px;
+}
+
+li {
+    margin-top: 8px;
+}
+
+span {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
