@@ -2,17 +2,21 @@ import styled from "styled-components";
 
 export const CardContainer = styled.section`
     width: 70vh;
-    min-height: 550px;
-    border: 1px solid black;
+    min-height: 500px;
+    max-height: 550px;
+    border: 1px solid #DA2D49;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     align-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
 
     img:nth-child(1){
         align-self: flex-end;
         margin-right: 25px;
+        cursor: pointer;
     }
 
     section:nth-child(2){
@@ -21,14 +25,19 @@ export const CardContainer = styled.section`
 
         span{
         background-image: url(${props => props.back});
-        background-position: center;
-        background-size: cover, contain;
+        
+        background-size: cover;
         background-repeat: no-repeat;
+
         -webkit-box-shadow: inset 0px -136px 64px -11px rgba(38,38,38,1);
         -moz-box-shadow: inset 0px -136px 64px -11px rgba(38,38,38,1);
-        box-shadow: inset 0px -136px 64px -11px rgba(38,38,38,1);
+        -webkit-box-shadow: inset 0px -136px 64px -11px rgba(38,38,38,1);
+        background-position: center;
+        box-shadow: inset 0px -136px 64px -11px rgba(38,38,38,0.5), inset 0px -136px 64px -11px rgba(38,38,38,0.5), inset 0px -136px 64px -11px rgba(38,38,38,0.5),     
+        rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
         width: 100%;
-        height: 100%;
+        min-height: 95%;
+        max-height: 100%;
         display: block;
         }
 
@@ -39,6 +48,7 @@ export const CardContainer = styled.section`
         p{
             color: white;
             font-size: 18px;
+            text-shadow: 2px 2px #161B22;
         }
     }
     }
@@ -48,10 +58,18 @@ export const CardContainer = styled.section`
         width: 100%;
         justify-content: space-around;
 
-        img{
+        svg{
             cursor: pointer;
+
+            &:hover{
+                fill: red;
+            }
         }
     }   
+`
+
+export const Icone = styled.svg`
+
 `
 
 export const MatcheContainer = styled.div`
@@ -62,6 +80,7 @@ export const MatcheContainer = styled.div`
     min-height: 550px;
     border: 1px solid black;
     align-items: center;
+    background-color: white;
 
     div {
         display: flex;
@@ -92,10 +111,10 @@ export const MatcheContainer = styled.div`
         border-radius: 50%;
     }
 
-    p {
-        font-size: 22px;
+`
+
+export const Aviso = styled.p`
+            font-size: 22px;
         text-align: center;
         padding: 100px 30px;
-    }
-
 `

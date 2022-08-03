@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { MatcheContainer } from "../style";
+import { MatcheContainer, Aviso } from "../style";
 
 function Matches (props) {
     
@@ -34,6 +34,7 @@ function Matches (props) {
     function zerarMatches () {
         axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/clear`).then(() => {
             alert("Matches zerados!!!")
+            setlistaMatches([])
         }).catch(() =>{
             alert('Algo saiu errado :( .. tente novamente!')
         })
@@ -46,9 +47,9 @@ function Matches (props) {
                     <button onClick={props.voltar}>Voltar...</button>
                     <button onClick={zerarMatches}>Zerar Matches</button>
                 </div>
-                    {listaMatches > 0 && lista}
-                    {listaMatches.length === 0 && <p>Você ainda não possui matches!!! 😥 <br />
-                        Continue avaliando os perfis...</p>}
+                    {listaMatches.length > 0 && lista}
+                    {listaMatches.length === 0 && <Aviso>Você ainda não possui matches!!! 😥 <br />
+                        Continue avaliando os perfis...</Aviso>}
             </MatcheContainer>
     )
 }
