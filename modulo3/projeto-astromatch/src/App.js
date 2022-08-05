@@ -7,17 +7,17 @@ function App() {
   let conteudo;
   const [boolean, setBoolean] = useState(false)
 
-  function monstraMatches () {
+  function mostraMatches () {
     setBoolean(!boolean)
   }
 
   if(boolean){
     conteudo = <Matches
-                  voltar={monstraMatches}
+                  voltar={mostraMatches}
                 />
   } else {
     conteudo = <Card
-      monstraMatches = {monstraMatches}
+      mostraMatches = {mostraMatches}
     />
   }
 

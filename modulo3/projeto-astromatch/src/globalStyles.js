@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
         align-items: center;
         min-height: 100vh;
         background-image: url(${Background});
+        font-family: 'Ubuntu', sans-serif;
     }
 `
 export default GlobalStyle;

@@ -6,7 +6,6 @@ function Matches (props) {
     
     const [listaMatches, setlistaMatches] = useState([])
     
-    
     const aluno = 'bianca-paccola-barros'
     function getMatches () {
         axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/matches`).then((response) => {
