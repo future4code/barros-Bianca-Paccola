@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CardContainer = styled.section`
     width: 70vh;
+    max-width: 400px;
     min-height: 500px;
     max-height: 550px;
     border: 1px solid #DA2D49;
@@ -26,14 +27,30 @@ export const CardContainer = styled.section`
             padding-right: 33%;
         }
 
-        svg{
-            cursor: pointer;
-            fill: #222222;
+        button{
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
 
-            &:hover{
-                fill: #DA2D49;
+            svg{
+                cursor: pointer;
+                fill: #222222;
+    
+                &:hover{
+                    fill: #DA2D49;
+                }
+            }
+
+            span{
+                background-color: #DA2D49;
+                padding: 4px 7px;
+                border-radius: 50%;
+                margin-left: 3px;
+                color: white;
             }
         }
+
     }
 
     section:nth-child(2){
@@ -128,8 +145,20 @@ export const CardContainer = styled.section`
     }   
 `
 
-
-
+export const BtnZerar = styled.button`
+    position: absolute;
+    right: 1%;
+    bottom: 15px;
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 120px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: white;
+    border: transparent;
+    cursor: pointer;
+`
 
 export const MatcheContainer = styled.div`
     display: flex;
@@ -139,7 +168,8 @@ export const MatcheContainer = styled.div`
     min-height: 550px;
     border: 1px solid black;
     align-items: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
     border: 1px solid #DA2D49;
 
     h1{

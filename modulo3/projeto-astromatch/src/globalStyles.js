@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
         justify-content: center;
         align-items: center;
         min-height: 100vh;
+        width: 100%;
         background-image: url(${Background});
         font-family: 'Ubuntu', sans-serif;
     }

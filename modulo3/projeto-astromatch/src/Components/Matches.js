@@ -4,24 +4,24 @@ import { MatcheContainer, Aviso } from "../style";
 
 function Matches (props) {
     
-    const [listaMatches, setlistaMatches] = useState([])
+    const [listaMatches, setlistaMatches] = useState(['carregando'])
     
     const aluno = 'bianca-paccola-barros'
     function getMatches () {
         axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/matches`).then((response) => {
-            return setlistaMatches(response.data.matches)
+            setlistaMatches(response.data.matches)
         }).catch((error) => {
-            return alert('Erro ao carregar lista')
+            alert('Erro ao carregar lista')
         })
     }
     
     useEffect(() => {
             getMatches()
-        },[]
+        },
     )
     const lista = listaMatches.map((perfil) => {
         return (
-            <ul> 
+            <ul key={perfil.id}> 
                 <li>
                 <img src={perfil.photo} alt={perfil.photo_alt}></img>
                 <p>{perfil.name}</p>
@@ -46,6 +46,7 @@ function Matches (props) {
                     <button onClick={props.voltar}>Voltar...</button>
                     <button onClick={zerarMatches}>Zerar Matches</button>
                 </div>
+                    {listaMatches.includes('carregando') && <Aviso>Carregando...</Aviso>}
                     {listaMatches.length > 0 && lista}
                     {listaMatches.length === 0 && <Aviso>Você ainda não possui matches!!! 😥 <br />
                         Continue avaliando os perfis...</Aviso>}
