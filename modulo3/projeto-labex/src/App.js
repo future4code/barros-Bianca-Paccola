@@ -7,10 +7,12 @@ import HomePage from './pages/HomePage/HomePage'
 import ListTripPage from './pages/ListTripsPage/ListTripsPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import TripDatailsPage from './pages/TripDatailsPage/TripDatailsPage'
+import { GlobalStyle } from "./GlobalStyle";
 
 function App() {
   return (
     <div>
+    <GlobalStyle />
     <BrowserRouter>
       <Routes>
         <Route index element={<HomePage />} />

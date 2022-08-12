@@ -5,8 +5,8 @@ function HomePage() {
   const navigate = useNavigate();
     return (
       <>
-        <p>Home Page</p>
-        <button onClick={() => navigate("/trips/list")}>Ver viagens...</button>
+        <h1>Bem Vindos a LabeX!!! Sua plataforma de gerenciamento de viagens espaciais 🚀</h1>
+        <button onClick={() => navigate("/trips/list")}>Lista de Viagens</button>
         <button onClick={() => navigate("/login")}>Fazer Login</button>
       </>
     );
