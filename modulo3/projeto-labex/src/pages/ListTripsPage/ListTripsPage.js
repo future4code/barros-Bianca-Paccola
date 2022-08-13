@@ -14,16 +14,18 @@ function ListTripPage() {
         <p><strong>Nome: </strong> {viagem.name}</p>
         <p><strong>Descrição: </strong> {viagem.description}</p>
         <p><strong>Planeta: </strong> {viagem.planet}</p>
-        <p><strong>Duração: </strong>{viagem.durationInDays}</p>
+        <p><strong>Duração: </strong>{viagem.durationInDays} dias</p>
         <p><strong>Data: </strong>{viagem.date}</p>
       </CardViagem>
     )
   })
     return (
       <ListContainer>
-        <h1>Lista de Viagens</h1>
-        <button onClick={() => navigate('/trips/application')}>Increva-se em uma viagem!</button>
-        <button onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
+        <h1>🚀 Lista de Viagens 🚀</h1>
+        <div className="botoes">
+          <button onClick={() => navigate('/trips/application')}>Increva-se em uma viagem!</button>
+          <button onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
+        </div>
         <CardsContainer>
           {isLoading && <h1>Carregando...</h1>}
           {!isLoading && error && <h1>{error}</h1>}

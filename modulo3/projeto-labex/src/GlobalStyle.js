@@ -7,7 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         --roxo-profundo-azulado: #1B0A40;
         --roxo-azulado: #46268C;
         --rosa-claro: #B35ABF;
-        --cor-clara: #EDBEE8;
+        --cor-clara: #b1aab8;
+        --background-btn: rgba(250, 235, 215, 0.7);
     }
     
     * {
@@ -22,6 +23,12 @@ export const GlobalStyle = createGlobalStyle`
 
     h1 {
         font-family: 'Nova Square', cursive;
+        color: var(--roxo-profundo);
+        z-index: 1;
+    }
+
+    p {
+        font-family: 'Ubuntu', sans-serif;
     }
 
     button {
@@ -29,11 +36,19 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 700;
         text-decoration: none;
         padding: 12px;
+        background-color: var(--background-btn);
         border: var(--lilas) 3px solid;
         box-shadow: inset 0 0 32px 0 var(--lilas), 0 0 32px 0 var(--lilas);
         border-radius: 16px;
-        color: var(--roxo-azulado);
+        color: var(--roxo-profundo);
         text-shadow: 0 0 8px var(--lilas), 0 0 32px;
-        background-color: transparent;
+        cursor: pointer;
+        z-index: 1;
+
+        &:hover{
+            background-color: var(--lilas);
+            color: antiquewhite;
+        }
     }
+
 `
