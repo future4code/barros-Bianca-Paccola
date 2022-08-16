@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         padding: 12px;
         background-color: var(--background-btn);
-        border: var(--lilas) 3px solid;
+        border: var(--lilas) 2px solid;
         box-shadow: inset 0 0 32px 0 var(--lilas), 0 0 32px 0 var(--lilas);
         border-radius: 16px;
         color: var(--roxo-profundo);

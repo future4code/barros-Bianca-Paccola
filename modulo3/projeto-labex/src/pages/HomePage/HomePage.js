@@ -13,7 +13,7 @@ function HomePage() {
           <button onClick={() => navigate("/trips/list")}>Lista de Viagens</button>
           <button onClick={() => navigate("/login")}>Fazer Login</button>
         </div>
-        <img src={Galaxy} alt='imagem de galaxya'  />
+        <img src={Galaxy} alt='imagem de galaxya' />
       </HomeContainer>
     );
   }

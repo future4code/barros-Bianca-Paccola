@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'
 import { useRequestData } from '../../hook/useRequestData'
-import { getTrips } from '../../constants/constants'
+import { BASE_URL } from '../../constants/constants'
 import { ListContainer, CardsContainer, CardViagem } from './styled'
 
 function ListTripPage() {
   const navigate = useNavigate()
-  const [listaViagens, isLoading, error] = useRequestData(getTrips)
+  const [listaViagens, isLoading, error] = useRequestData(`${BASE_URL}/trips`)
 
   const renderList = listaViagens&&listaViagens.trips.map((viagem) => {
     return (

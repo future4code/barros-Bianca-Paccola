@@ -15,7 +15,7 @@ export const Formulario = styled.form`
     width: 50%;
     border: 1px solid black;
 
-    input{
+    input, select{
         width: 80%;
         font-size: 18px;
         padding: 5px;

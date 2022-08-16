@@ -1,3 +1,2 @@
 const path = 'bianca-paccola-barros'
-
-export const getTrips = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${path}/trips`
+export const BASE_URL = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${path}`
