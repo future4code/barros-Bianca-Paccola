@@ -8,7 +8,7 @@ export const HomeContainer = styled.body`
     align-items: center;
 
     h1 {
-        width: 80%;
+        max-width: 800px;
         margin-bottom: 7%;
         text-align: center;
     }
@@ -19,20 +19,21 @@ export const HomeContainer = styled.body`
         justify-content: space-evenly;
     }
 
-    img:nth-child(1) {
+    img{
         max-width: 330px;
         position: absolute;
+        z-index: 0;
+        filter: hue-rotate(35deg)
+    }
+
+    img:nth-child(1) {
         bottom: 0;
         right: 0;
-        z-index: 0;
     }
 
     img:nth-child(4) {
-        max-width: 330px;
-        position: absolute;
         top: 0;
         left: 0;
-        z-index: 0;
         transform: scaleX(-1);
     }
 `
