@@ -1,53 +1,63 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hook/useForm";
-import { usePostLogin } from "../../hook/usePostLogin";
 import { Formulario } from "./styled";
-import { BASE_URL } from '../../constants/constants'
+import axios from "axios";
 
 function LoginPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [body, onChange] = useForm({email: '', password: ''})
-  const [postLogin] = usePostLogin(`${BASE_URL}/login`, body)
+  const [body, onChange] = useForm({ email: "", password: "" });
 
-  function login (event) {
-    event.preventDefault()
-    postLogin()
-    console.log(body)
+  function login(event) {
+    event.preventDefault();
+    axios
+    .post(
+      "https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login",
+      body
+      )
+      .then((response) => {
+        navigate("/admin/trips/list")
+        console.log("deu certo");
+      })
+      .catch((error) => {
+        console.log("deu erro");
+      });
   }
-  
-  console.log(body)
 
-    return (
-      <>
-        <h1>Login</h1>
-        <Formulario onSubmit={login}>
-          <label htmlFor="email">E-mail:</label>
-          <input 
-          type='email' 
-          placeholder="Digite seu e-mail..." 
-          name='email'
-          id='email'
+  return (
+    <>
+      <h1>Login</h1>
+      <Formulario onSubmit={login}>
+        <label htmlFor="email">E-mail:</label>
+        <input
+          type="email"
+          placeholder="Digite seu e-mail..."
+          name="email"
+          id="email"
           value={body.email}
           onChange={onChange}
-          required 
-          />
-          <label htmlFor="Digite sua senha...">Senha:</label>
-          <input 
-          type='password' 
-          id='password'
-          placeholder="Senha"
-          name='password'
+          required
+        />
+        <label htmlFor="password">Senha:</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Digite sua senha..."
+          name="password"
           value={body.password}
-          onChange={onChange} 
-          required 
-          />
-        <button onClick={() => navigate('/admin/trips/list')} type='submit'>Entrar</button>
-        </Formulario>
-        <button onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
-      </>
-    );
-  }
-  
-  export default LoginPage;
+          onChange={onChange}
+          required
+        />
+        <div>
+          <button  type="submit">
+            Entrar
+          </button>
+          <button onClick={() => navigate(-1)} type='button'> &#8592; Voltar</button>
+        </div>
+      </Formulario>
+    </>
+  );
+}
+
+export default LoginPage;

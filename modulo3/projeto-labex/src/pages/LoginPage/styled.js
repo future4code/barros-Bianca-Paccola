@@ -6,7 +6,7 @@ export const Formulario = styled.form`
     align-items: center;
     gap: 20px;
     padding: 35px 75px;
-    width: 50%;
+    width: 500px;
     border: 1px solid black;
 
     input{
