@@ -51,4 +51,38 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 35px 40px;
+        width: 500px;
+        max-width: 90%;
+        margin: 15px 10px;
+        border: var(--roxo-azulado) 2px solid;
+        box-shadow: inset 0 0 32px 0 var(--roxo-azulado), 0 0 32px 0 var(--roxo-azulado);
+        border-radius: 16px;
+        color: var(--roxo-profundo);
+
+        input, select{
+            width: 90%;
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        div{
+            display: flex;
+            width: 90%;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        label{
+            margin: 20px 0 10px 0;
+            text-align: center;
+        }
+    }
+
 `

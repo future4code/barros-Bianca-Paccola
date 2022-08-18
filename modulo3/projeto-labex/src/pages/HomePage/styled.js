@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.body`
+export const HomeContainer = styled.main`
     min-height: 100vh;
     display: flex;
     flex-direction: column;

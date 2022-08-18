@@ -8,43 +8,58 @@ function ApplicationFormPage() {
   const navigate = useNavigate();
 
   const [listaViagens] = useRequestData(`${BASE_URL}/trips`);
+  const listaViagensSelect = listaViagens &&
+  listaViagens.trips.map((viagem) => {
+    return (
+      <option key={viagem.id} value={viagem.name}>
+        {viagem.name} - {viagem.planet}
+      </option>
+    );
+  })
 
   return (
     <FormContainer>
       <h1>Inscreva-se para uma viagem !!!</h1>
-      <Formulario>
-        <select>
-          {listaViagens &&
-            listaViagens.trips.map((viagem) => {
-              return (
-                <option key={viagem.id} value={viagem.name}>
-                  {viagem.name} - {viagem.planet}
-                </option>
-              );
-            })}
+      <form>
+        <label htmlFor="selectTrip">Selecione a viagem desejada:</label>
+        <select id='selectTrip'>
+          {listaViagensSelect}
         </select>
+        <label htmlFor="nome">Insira seu nome completo: </label>
         <input type="text" 
         placeholder="Nome" 
-        minlength="5" 
+        minLength="5" 
+        id="nome"
+        name="nome"
         required
         />
+        <label htmlFor="idade">Insira sua idade (mínimo 18 anos!):</label>
         <input type="number" 
         placeholder="Idade" 
         min="18" 
+        id="idade"
+        name="idade"
         required
         />
+        <label htmlFor="mensagem">Escreva seu texto de candidatura!</label>
         <input
           type="text"
-          placeholder="Texto de candidatura..."
-          minlength="30"
+          placeholder="Mensagem..."
+          minLength="30"
+          id="mensagem"
+          name="mensagem"
           required
         />
+        <label htmlFor="profissão">Insira sua profissão:</label>
         <input type="text" 
         placeholder="Profissão" 
-        minlength="10"
+        minLength="10"
+        id="profissão"
+        name="profissão"
         required 
         />
-        <select>
+        <label htmlFor="país">Selecione seu páis:</label>
+        <select id="país">
           <option value="África do Sul">África do Sul</option>
           <option value="Albânia">Albânia</option>
           <option value="Alemanha">Alemanha</option>
@@ -226,9 +241,9 @@ function ApplicationFormPage() {
         </select>
         <div>
           <button type="submit">Enviar</button>
-          <button onClick={() => navigate(-1)}> &#8592; Voltar</button>
+          <button onClick={() => navigate(-1)} type='button'> &#8592; Voltar</button>
         </div>
-      </Formulario>
+      </form>
     </FormContainer>
   );
 }

@@ -19,6 +19,7 @@ function ListTripPage() {
       </CardViagem>
     )
   })
+
     return (
       <ListContainer>
         <h1>🚀 Lista de Viagens 🚀</h1>
@@ -30,7 +31,6 @@ function ListTripPage() {
           {isLoading && <h1>Carregando...</h1>}
           {!isLoading && error && <h1>{error}</h1>}
           {!isLoading && renderList && renderList}
-          {renderList}
         </CardsContainer>
       </ListContainer>
     );

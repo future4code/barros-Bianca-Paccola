@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Fundo from '../../images/fundo.png'
 
-export const ListContainer = styled.body`
+export const ListContainer = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +14,7 @@ export const ListContainer = styled.body`
     .botoes {
         width: 80%;
         display: flex;
+        gap: 15px;
         justify-content: space-between;
         margin: 3% 0;
     }

@@ -1,34 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hook/useForm";
-import { Formulario } from "./styled";
-import axios from "axios";
+import { FormContainer } from "./styled";
+import { PostLogin } from "../../hook/PostLogin";
+import { BASE_URL } from "../../constants/constants";
 
 function LoginPage() {
   const navigate = useNavigate();
 
-  const [body, onChange] = useForm({ email: "", password: "" });
+  const [body, onChange, clear] = useForm({ email: "", password: "" });
 
   function login(event) {
-    event.preventDefault();
-    axios
-    .post(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login",
-      body
-      )
-      .then((response) => {
-        navigate("/admin/trips/list")
-        console.log("deu certo");
-      })
-      .catch((error) => {
-        console.log("deu erro");
-      });
+    event.preventDefault()
+    PostLogin(`${BASE_URL}/login`, body, navigate);
+    clear()
   }
 
   return (
-    <>
+    <FormContainer>
       <h1>Login</h1>
-      <Formulario onSubmit={login}>
+      <form onSubmit={login}>
         <label htmlFor="email">E-mail:</label>
         <input
           type="email"
@@ -50,13 +41,13 @@ function LoginPage() {
           required
         />
         <div>
-          <button  type="submit">
-            Entrar
+          <button type="submit">Entrar</button>
+          <button onClick={() => navigate(-1)} type="button">
+            &#8592; Voltar
           </button>
-          <button onClick={() => navigate(-1)} type='button'> &#8592; Voltar</button>
         </div>
-      </Formulario>
-    </>
+      </form>
+    </FormContainer>
   );
 }
 
