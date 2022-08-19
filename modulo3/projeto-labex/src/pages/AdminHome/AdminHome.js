@@ -8,8 +8,8 @@ function AdminHome() {
     return (
       <>
         <p>Home Admin</p>
-        <button onClick={() => navigate('/admin/trips/create')}>Criar Lista</button>
-        <button onClick={() => Coordinators.goToTripsCreate(navigate)}>Detalhes da viagem</button>
+        <button onClick={() => Coordinators.goToTripsCreate(navigate)}>Criar Viagem</button>
+        <button onClick={() => Coordinators.goToTripDetails(navigate)}>Detalhes da viagem</button>
         <button onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
         <Cards />
       </>
