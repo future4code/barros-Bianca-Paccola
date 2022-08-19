@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom'
-import { BASE_URL } from "../../constants/constants";
-import { useRequestData } from "../../hook/useRequestData";
+import { BASE_URL } from "../../components/constants/constants";
+import { useRequestData } from "../../components/hook/useRequestData";
 
 function CreateTripPage() {
   const navigate = useNavigate()
@@ -19,7 +19,7 @@ function CreateTripPage() {
               </option>
             })}
         </select>
-        <input type="text" placeholder="Nome" minlength="5" required></input>
+        <input type="text" placeholder="Nome" minLength="5" required></input>
         <input type="number" placeholder="Idade" required></input>
         <input type="text" placeholder="Texto de candidatura..." required></input>
         <input type="text" placeholder="Profissão" required></input>

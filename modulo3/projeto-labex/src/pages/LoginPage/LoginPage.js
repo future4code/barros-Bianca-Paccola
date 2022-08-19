@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "../../hook/useForm";
+import { useForm } from "../../components/hook/useForm";
 import { FormContainer } from "./styled";
-import { PostLogin } from "../../hook/PostLogin";
-import { BASE_URL } from "../../constants/constants";
+import { PostLogin } from "../../components/Axios/PostLogin";
+import { BASE_URL } from "../../components/constants/constants";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -28,6 +28,7 @@ function LoginPage() {
           id="email"
           value={body.email}
           onChange={onChange}
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           required
         />
         <label htmlFor="password">Senha:</label>

@@ -1,65 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRequestData } from "../../hook/useRequestData";
-import { FormContainer, Formulario } from "./styled";
-import { BASE_URL } from "../../constants/constants";
+import { useRequestData } from "../../components/hook/useRequestData";
+import { FormContainer } from "./styled";
+import { BASE_URL } from "../../components/constants/constants";
+import { useForm } from "../../components/hook/useForm"
+import { PostApplyToTrip } from "../../components/Axios/PostApplyToTrip";
 
 function ApplicationFormPage() {
   const navigate = useNavigate();
-
+  const [idViagem, setIdViagem] = useState("")
+  const [body, onChange, clear] = useForm({name: "", age: "", applicationText: "", profession: "", country: ""})
   const [listaViagens] = useRequestData(`${BASE_URL}/trips`);
+  
   const listaViagensSelect = listaViagens &&
   listaViagens.trips.map((viagem) => {
     return (
-      <option key={viagem.id} value={viagem.name}>
+      <option key={viagem.id} value={viagem.id}>
         {viagem.name} - {viagem.planet}
       </option>
     );
   })
+  
+  function applyToTrip (event) {
+    event.preventDefault()
+    PostApplyToTrip(`${BASE_URL}/trips/${idViagem}/apply`, body)
+    console.log(idViagem)
+    clear()
+  }
+  
 
   return (
     <FormContainer>
       <h1>Inscreva-se para uma viagem !!!</h1>
-      <form>
+      <form onSubmit={applyToTrip}>
         <label htmlFor="selectTrip">Selecione a viagem desejada:</label>
-        <select id='selectTrip'>
+        <select 
+        id="selectTrip"
+        value={idViagem}
+        onChange={(e) => setIdViagem(e.target.value)}
+        >
           {listaViagensSelect}
         </select>
-        <label htmlFor="nome">Insira seu nome completo: </label>
+        <label htmlFor="name">Insira seu nome completo: </label>
         <input type="text" 
         placeholder="Nome" 
         minLength="5" 
-        id="nome"
-        name="nome"
+        id="name"
+        name="name"
         required
+        value={body.name}
+        onChange={onChange}
         />
-        <label htmlFor="idade">Insira sua idade (mínimo 18 anos!):</label>
+        <label htmlFor="age">Insira sua idade (mínimo 18 anos!):</label>
         <input type="number" 
         placeholder="Idade" 
         min="18" 
-        id="idade"
-        name="idade"
+        id="age"
+        name="age"
         required
+        value={body.age}
+        onChange={onChange}
         />
-        <label htmlFor="mensagem">Escreva seu texto de candidatura!</label>
+        <label htmlFor="applicationText">Escreva seu texto de candidatura!</label>
         <input
           type="text"
           placeholder="Mensagem..."
           minLength="30"
-          id="mensagem"
-          name="mensagem"
+          id="applicationText"
+          name="applicationText"
           required
+          value={body.applicationText}
+          onChange={onChange}
         />
-        <label htmlFor="profissão">Insira sua profissão:</label>
+        <label htmlFor="profession">Insira sua profissão:</label>
         <input type="text" 
         placeholder="Profissão" 
         minLength="10"
-        id="profissão"
-        name="profissão"
+        id="profession"
+        name="profession"
         required 
+        value={body.profession}
+        onChange={onChange}
         />
-        <label htmlFor="país">Selecione seu páis:</label>
-        <select id="país">
+        <label htmlFor="country">Selecione seu páis:</label>
+        <select 
+        id="country"
+        name="country"
+        value={body.country}
+        onChange={onChange}
+        >
           <option value="África do Sul">África do Sul</option>
           <option value="Albânia">Albânia</option>
           <option value="Alemanha">Alemanha</option>
