@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRequestData } from "../../components/hook/useRequestData";
 import { BASE_URL } from "../../components/constants/constants";
-import { CardCandidate, CardViagem } from "./styled";
+import { CardCandidate, CardsContainer, CardViagem } from "./styled";
 
 function TripPageDetail() {
   const navigate = useNavigate();
@@ -21,14 +21,18 @@ function TripPageDetail() {
       <li><span>Idade: </span>{candidate.age}</li>
       <li><span>País: </span>{candidate.country}</li>
       <li><span>Texto de candidatura: </span>{candidate.applicationText}</li>
+      <div>
+        <button>Aprovar</button>
+        <button>Reprovar</button>
+      </div>
     </ul>
     </CardCandidate>
     )
   })
 
   return (
-    <>
-      <p>Detalhes da viagem...</p>
+    <CardsContainer>
+      <h1>{data.trip.name}</h1>
       <button onClick={() => navigate(-1)}> &#8592; Voltar</button>
       <CardViagem>
       {isLoading && <h1>Carregando...</h1>}
@@ -43,14 +47,14 @@ function TripPageDetail() {
         </ul>
       )}
       </CardViagem>
-
-
+    
+    <h1>Canditatos Pendentes: </h1>
     {isLoading && <h1>Carregando...</h1>}
     {!isLoading && error && <h1>{error}</h1>}
     {!isLoading && data && data.trip.candidates.length === 0 && <p>Está viagem ainda não possui candidatos...</p>}
     {!isLoading && data && data.trip.candidates.length > 0 && candidacies}
 
-    </>
+    </CardsContainer>
   );
 }
 
