@@ -1,5 +1,3 @@
-import { Navigate } from "react-router-dom"
-
 export const goToHome=(navigate) => navigate("/")
 
 export const goToTripListAdmin=(navigate)=> navigate("/admin/trips/list")

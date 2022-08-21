@@ -1,13 +1,14 @@
 import axios from "axios";
-import { goToTripDetail, goToTripListAdmin } from "../../Coordinators/Coordinators";
+import { goToTripListAdmin } from "../../Coordinators/Coordinators";
 
 export function PostLogin(url,body, navigate){
 
     return (
         axios.post(url, body).then((response)=>{
             goToTripListAdmin(navigate)
+            localStorage.setItem('token', response.data.token)
         }).catch((error)=>{
-            alert("Atenção: Dados incorretos!!!")
+            alert(`Atenção: Dados incorretos!!! ${error}`)
         }) 
     )
 }
