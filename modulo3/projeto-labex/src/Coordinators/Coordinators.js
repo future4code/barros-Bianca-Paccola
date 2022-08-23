@@ -10,4 +10,4 @@ export const goToLogin=(navigate) => navigate("/login")
 
 export const goToTripsApplication=(navigate) => navigate("/trips/application")
 
-export const goToTripDetails=(navigate) => navigate("/admin/trips/:id")
+export const goToTripDetails=(navigate, id) => navigate(`/admin/trips/${id}`)

@@ -8,7 +8,7 @@ export function PostLogin(url,body, navigate){
             goToTripListAdmin(navigate)
             localStorage.setItem('token', response.data.token)
         }).catch((error)=>{
-            alert(`Atenção: Dados incorretos!!! ${error}`)
+            alert(`Atenção: Dados incorretos ou usuário não cadastrado!!! ${error}`)
         }) 
     )
 }

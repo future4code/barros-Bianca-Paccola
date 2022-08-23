@@ -1,14 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useRequestData } from "../../components/hook/useRequestData";
 import { BASE_URL } from "../../components/constants/constants";
 import { CardCandidate, CardsContainer, CardViagem } from "./styled";
 
 function TripPageDetail() {
   const navigate = useNavigate();
+  const pathParams = useParams()
+  const tripId = pathParams.id
+  console.log(tripId)
   
   const [data, isLoading, error] = useRequestData(
-    `${BASE_URL}/trip/${localStorage.getItem('viagemId')}`,
+    `${BASE_URL}/trip/${tripId}`,
     { headers: { auth: localStorage.getItem("token") } }
   );
 
@@ -32,7 +35,7 @@ function TripPageDetail() {
 
   return (
     <CardsContainer>
-      <h1>{data.trip.name}</h1>
+      <h1>Detalhes da viagem...</h1>
       <button onClick={() => navigate(-1)}> &#8592; Voltar</button>
       <CardViagem>
       {isLoading && <h1>Carregando...</h1>}

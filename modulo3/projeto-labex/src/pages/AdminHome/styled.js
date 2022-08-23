@@ -32,4 +32,8 @@ export const CardViagem = styled.div`
         justify-content: space-between;
         gap: 15px;
     }
+
+    span {
+        cursor: pointer;
+    }
 `
