@@ -1,24 +1,25 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom'
 import { BASE_URL } from "../../components/constants/constants";
-import { useRequestData } from "../../components/hook/useRequestData";
 import { useForm } from "../../components/hook/useForm"
 import { PostCreateTrip } from "../../components/Axios/PostCreateTrip"
+import { useProtectPage } from "../../components/hook/useProtectPage"
 
 function CreateTripPage() {
+  useProtectPage()
   const navigate = useNavigate()
   const tripDate = new Date()
-  const [body, onChange, clear] = useForm({name: "", planet: "", date: "", description: "", durationInDays: 0})
+  const [body, onChange, clear] = useForm({name: "", planet: "Júpiter", date: "", description: "", durationInDays: 0})
 
   function createTrip (event) {
     event.preventDefault()
-    console.log(body)
     console.log(localStorage.getItem("token"))
     PostCreateTrip(`${BASE_URL}/trips`, body,  { 
       headers: {
         auth: localStorage.getItem("token")
     }
       })
+      clear()
   }
 
     return (

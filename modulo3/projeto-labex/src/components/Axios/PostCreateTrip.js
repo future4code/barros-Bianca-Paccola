@@ -1,3 +1,4 @@
+import { clear } from "@testing-library/user-event/dist/clear";
 import axios from "axios";
 
 export function PostCreateTrip(url,body, header){

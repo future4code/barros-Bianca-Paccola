@@ -1,27 +1,29 @@
-import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import React from "react";
+import {useNavigate} from 'react-router-dom';
 import { CardsContainer, CardViagem } from "./styled";
-import * as Coordinators from '../../Coordinators/Coordinators'
-import { useRequestData } from '../../components/hook/useRequestData'
-import { BASE_URL } from '../../components/constants/constants'
-import { PutDeleteTrip } from "../../components/Axios/putDeleteTrip";
+import * as Coordinators from '../../Coordinators/Coordinators';
+import { useRequestData } from '../../components/hook/useRequestData';
+import { BASE_URL } from '../../components/constants/constants';
+import { DeleteTrip } from "../../components/Axios/DeleteTrip";
+import { useProtectPage } from "../../components/hook/useProtectPage";
 
 function AdminHome() {
+  useProtectPage()
   const navigate = useNavigate()
-  const [listaViagens, isLoading, error] = useRequestData(`${BASE_URL}/trips`)
+  const [listaViagens, isLoading, error, reload, setReload] = useRequestData(`${BASE_URL}/trips`)
 
   function handleClick(id) {
     Coordinators.goToTripDetails(navigate, id)
   }
-
+  
   function tripDelete (id) {
     if(window.confirm("Tem certeza que deseja excluir")){
-      console.log(localStorage.getItem("token"))
-      PutDeleteTrip(`${BASE_URL}/trips/${id}`, 
+      DeleteTrip(`${BASE_URL}/trips/${id}`, 
       { headers: { auth: localStorage.getItem("token") } })
     }
+    setReload(!reload)
   }
-
+  
   const renderList = listaViagens&&listaViagens.trips.map((viagem) => {
     return (
       <CardViagem key={viagem.id}>
@@ -35,7 +37,6 @@ function AdminHome() {
       </CardViagem>
     )
   })
-
 
     return (
       <>
