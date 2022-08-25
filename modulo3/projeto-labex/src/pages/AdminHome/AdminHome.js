@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import { CardsContainer, CardViagem } from "./styled";
 import * as Coordinators from '../../Coordinators/Coordinators';
@@ -10,8 +10,8 @@ import { useProtectPage } from "../../components/hook/useProtectPage";
 function AdminHome() {
   useProtectPage()
   const navigate = useNavigate()
-  const [listaViagens, isLoading, error, reload, setReload] = useRequestData(`${BASE_URL}/trips`)
-
+  const [listaViagens, isLoading, error] = useRequestData(`${BASE_URL}/trips`)
+  
   function handleClick(id) {
     Coordinators.goToTripDetails(navigate, id)
   }
@@ -21,7 +21,6 @@ function AdminHome() {
       DeleteTrip(`${BASE_URL}/trips/${id}`, 
       { headers: { auth: localStorage.getItem("token") } })
     }
-    setReload(!reload)
   }
   
   const renderList = listaViagens&&listaViagens.trips.map((viagem) => {

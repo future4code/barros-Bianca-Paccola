@@ -5,7 +5,6 @@ export function useRequestData(url, header) {
     const [data, setData] = useState(undefined)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
-    const [reload, setReload] = useState(true)
 
     useEffect(() =>{
         setIsLoading(true)
@@ -16,7 +15,7 @@ export function useRequestData(url, header) {
             setIsLoading(false)
             setError(error)
         })
-    }, [reload] )
+    }, [] )
 
-    return [data, isLoading, error, reload, setReload];
+    return [data, isLoading, error];
 }

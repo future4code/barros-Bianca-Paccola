@@ -4,16 +4,18 @@ import { BASE_URL } from "../../components/constants/constants";
 import { useForm } from "../../components/hook/useForm"
 import { PostCreateTrip } from "../../components/Axios/PostCreateTrip"
 import { useProtectPage } from "../../components/hook/useProtectPage"
+import { DateTrip } from "../../components/constants/Date"
 
 function CreateTripPage() {
   useProtectPage()
+  
   const navigate = useNavigate()
-  const tripDate = new Date()
-  const [body, onChange, clear] = useForm({name: "", planet: "Júpiter", date: "", description: "", durationInDays: 0})
+  let tripDate = DateTrip()
+  console.log(tripDate)
+  const [body, onChange, clear] = useForm({name: "", planet: "Júpiter", date: "", description: "", durationInDays: ""})
 
   function createTrip (event) {
     event.preventDefault()
-    console.log(localStorage.getItem("token"))
     PostCreateTrip(`${BASE_URL}/trips`, body,  { 
       headers: {
         auth: localStorage.getItem("token")
@@ -63,7 +65,7 @@ function CreateTripPage() {
           placeholder="Data"
           id="date"
           name="date"
-          min={tripDate.toLocaleDateString()}
+          min={tripDate}
           required
           value={body.date}
           onChange={onChange}  

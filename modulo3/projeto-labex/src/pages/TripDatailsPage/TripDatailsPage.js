@@ -12,7 +12,7 @@ function TripPageDetail() {
   const pathParams = useParams()
   const tripId = pathParams.id
 
-  function toApprove (id, event) {
+  function toApprove (id) {
     PutDecide(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
     {
       approve: true
