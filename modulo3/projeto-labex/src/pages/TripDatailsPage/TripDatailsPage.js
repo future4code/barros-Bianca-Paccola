@@ -6,6 +6,7 @@ import { BASE_URL } from "../../components/constants/constants";
 import { CardCandidate, CardsContainer, CardViagem } from "./styled";
 import { useProtectPage } from "../../components/hook/useProtectPage"
 import Header from "../../components/Header/Header"
+import { PutDecide } from "../../components/Axios/PutDecide";
 
 function TripPageDetail() {
   useProtectPage()
@@ -18,18 +19,9 @@ function TripPageDetail() {
   );
   
   function toDecide (id, boolean) { 
-        axios.put(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
-        { approve: boolean }, 
-        { headers: {auth: localStorage.getItem("token")} }).then(()=>{
-          if(boolean === true){
-              alert("Candidato aprovado!")
-          } else {
-              alert("Candidato Reprovado")
-          }
-          setReload(!reload)
-      }).catch(()=>{
-          alert("Oops... Houve algum erro na sua requisição... Tente novamente!")
-      }) 
+    PutDecide(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
+    { approve: boolean }, 
+    { headers: {auth: localStorage.getItem("token")} }).then(()=>setReload(!reload))
   }
   
   const candidacies = data && data.trip.candidates.map((candidate)=>{

@@ -7,6 +7,7 @@ import { useRequestData } from '../../components/hook/useRequestData';
 import { BASE_URL } from '../../components/constants/constants';
 import { useProtectPage } from "../../components/hook/useProtectPage";
 import Header from "../../components/Header/Header"
+import {DeleteTrip} from "../../components/Axios/DeleteTrip"
 
 function AdminHome() {
   useProtectPage()
@@ -19,13 +20,8 @@ function AdminHome() {
   
   function tripDelete (id) {
     if(window.confirm("Tem certeza que deseja excluir")){
-      axios.delete(`${BASE_URL}/trips/${id}`, 
-      { headers: { auth: localStorage.getItem("token") } }).then(()=>{
-        alert("Viagem DELETADA com Sucesso!!!")
-        setReload(!reload)
-    }).catch(()=>{
-        alert("Houve algum erro ao tentar processar sua requisição... Atualize a página e tente novamente...")
-    }) 
+      DeleteTrip(`${BASE_URL}/trips/${id}`, 
+        { headers: { auth: localStorage.getItem("token") } }).then(()=>setReload(!reload))
     }
   }
   
