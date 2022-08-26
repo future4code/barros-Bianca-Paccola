@@ -6,6 +6,7 @@ import { useRequestData } from '../../components/hook/useRequestData';
 import { BASE_URL } from '../../components/constants/constants';
 import { DeleteTrip } from "../../components/Axios/DeleteTrip";
 import { useProtectPage } from "../../components/hook/useProtectPage";
+import Header from "../../components/Header/Header"
 
 function AdminHome() {
   useProtectPage()
@@ -39,7 +40,9 @@ function AdminHome() {
 
     return (
       <>
-        <p>Home Admin</p>
+        <Header 
+          titulo="Home Admin"
+        />
         <button onClick={() => Coordinators.goToTripsCreate(navigate)}>Criar Viagem</button>
         <button onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
         <CardsContainer>

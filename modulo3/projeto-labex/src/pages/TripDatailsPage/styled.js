@@ -15,10 +15,12 @@ export const CardsContainer = styled.section`
 
 export const CardViagem = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 5%;
-    height: 280px;
+    max-height: 200px;
+    line-height: 200%;
+    text-align: center;
     width: 500px;
     padding: 10px;
     margin: 15px 0;

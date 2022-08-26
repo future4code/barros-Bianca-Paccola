@@ -4,6 +4,7 @@ import { useForm } from "../../components/hook/useForm";
 import { FormContainer } from "./styled";
 import { PostLogin } from "../../components/Axios/PostLogin";
 import { BASE_URL } from "../../components/constants/constants";
+import Header from "../../components/Header/Header"
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -18,7 +19,9 @@ function LoginPage() {
 
   return (
     <FormContainer>
-      <h1>Login</h1>
+      <Header 
+      titulo="Login"
+      />
       <form onSubmit={login}>
         <label htmlFor="email">E-mail:</label>
         <input

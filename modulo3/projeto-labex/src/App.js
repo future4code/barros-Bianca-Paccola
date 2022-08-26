@@ -10,6 +10,11 @@ import TripDatailsPage from './pages/TripDatailsPage/TripDatailsPage'
 import { GlobalStyle } from "./GlobalStyle";
 
 function App() {
+  window.onbeforeunload = function() {
+    localStorage.removeItem("token");
+    return '';
+  };
+  
   return (
     <div>
     <GlobalStyle />

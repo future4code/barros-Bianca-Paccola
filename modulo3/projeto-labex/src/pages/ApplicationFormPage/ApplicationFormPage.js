@@ -5,11 +5,12 @@ import { FormContainer } from "./styled";
 import { BASE_URL } from "../../components/constants/constants";
 import { useForm } from "../../components/hook/useForm"
 import { PostApplyToTrip } from "../../components/Axios/PostApplyToTrip";
+import Header from "../../components/Header/Header";
 
 function ApplicationFormPage() {
   const navigate = useNavigate();
   const [idViagem, setIdViagem] = useState("")
-  const [body, onChange, clear] = useForm({name: "", age: "", applicationText: "", profession: "", country: ""})
+  const [body, onChange, clear] = useForm({name: "", age: "", applicationText: "", profession: "", country: "Brasil"})
   const [listaViagens] = useRequestData(`${BASE_URL}/trips`);
   
   const listaViagensSelect = listaViagens &&
@@ -31,7 +32,9 @@ function ApplicationFormPage() {
 
   return (
     <FormContainer>
-      <h1>Inscreva-se para uma viagem !!!</h1>
+      <Header 
+      titulo="Inscreva-se em uma viagem!!!"
+      />
       <form onSubmit={applyToTrip}>
         <label htmlFor="selectTrip">Selecione a viagem desejada:</label>
         <select 
@@ -39,6 +42,7 @@ function ApplicationFormPage() {
         value={idViagem}
         onChange={(e) => setIdViagem(e.target.value)}
         >
+          <option>Selecione uma viagem...</option>
           {listaViagensSelect}
         </select>
         <label htmlFor="name">Insira seu nome completo: </label>
@@ -111,9 +115,7 @@ function ApplicationFormPage() {
           <option value="Benin">Benin</option>
           <option value="Bermudas">Bermudas</option>
           <option value="Botsuana">Botsuana</option>
-          <option value="Brasil" selected>
-            Brasil
-          </option>
+          <option selected value="Brasil">Brasil</option>
           <option value="Brunei">Brunei</option>
           <option value="Bulgária">Bulgária</option>
           <option value="Burkina Fasso">Burkina Fasso</option>
@@ -245,7 +247,7 @@ function ApplicationFormPage() {
           <option value="Singapura">Singapura</option>
           <option value="Síria">Síria</option>
           <option value="Sri Lanka">Sri Lanka</option>
-          <option value="St. Kitts &#038; Nevis">St. Kitts & Nevis</option>
+          <option value="St. Kitts &#038; Nevis">St. Kitts &amp; Nevis</option>
           <option value="St. Lúcia">St. Lúcia</option>
           <option value="St. Vincent">St. Vincent</option>
           <option value="Sudão">Sudão</option>
@@ -256,7 +258,7 @@ function ApplicationFormPage() {
           <option value="Taiwan">Taiwan</option>
           <option value="Tanzânia">Tanzânia</option>
           <option value="Togo">Togo</option>
-          <option value="Trinidad &#038; Tobago">Trinidad & Tobago</option>
+          <option value="Trinidad &#038; Tobago">Trinidad &#038; Tobago</option>
           <option value="Tunísia">Tunísia</option>
           <option value="Turquia">Turquia</option>
           <option value="Ucrânia">Ucrânia</option>

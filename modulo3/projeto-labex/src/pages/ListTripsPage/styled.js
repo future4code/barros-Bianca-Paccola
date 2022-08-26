@@ -8,8 +8,7 @@ export const ListContainer = styled.main`
     min-height: 100vh;
     background-image: url(${Fundo});
     background-repeat: no-repeat;
-    background-size:contain;
-    /* background-size: 100%; */
+    background-size: 100vw;
 
     .botoes {
         width: 80%;

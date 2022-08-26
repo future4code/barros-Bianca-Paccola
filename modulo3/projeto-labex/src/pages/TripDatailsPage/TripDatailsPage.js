@@ -1,39 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRequestData } from "../../components/hook/useRequestData";
 import { BASE_URL } from "../../components/constants/constants";
 import { CardCandidate, CardsContainer, CardViagem } from "./styled";
 import { useProtectPage } from "../../components/hook/useProtectPage"
 import { PutDecide } from "../../components/Axios/PutDecide";
+import Header from "../../components/Header/Header"
 
 function TripPageDetail() {
   useProtectPage()
   const navigate = useNavigate();
   const pathParams = useParams()
   const tripId = pathParams.id
-
-  function toApprove (id) {
-    PutDecide(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
-    {
-      approve: true
-    }, 
-    { headers: { auth: localStorage.getItem("token") } }
-    )
-  }
-
-  function toDesapprove (id) {
-    PutDecide(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
-    {
-      approve: false
-    }, 
-    { headers: { auth: localStorage.getItem("token") } }
-    )
-  }
-  
   const [data, isLoading, error] = useRequestData(
     `${BASE_URL}/trip/${tripId}`,
     { headers: { auth: localStorage.getItem("token") } }
   );
+  
+  function toDecide (id, boolean) { 
+
+      PutDecide(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
+      {
+        approve: boolean
+      }, 
+      { headers: { auth: localStorage.getItem("token") } }
+      ) 
+
+  }
+  
 
   const candidacies = data && data.trip.candidates.map((candidate)=>{
     return (
@@ -45,8 +39,8 @@ function TripPageDetail() {
       <li><span>País: </span>{candidate.country}</li>
       <li><span>Texto de candidatura: </span>{candidate.applicationText}</li>
       <div>
-        <button onClick={()=>toApprove(candidate.id)}>Aprovar</button>
-        <button onClick={()=>toDesapprove(candidate.id)}>Reprovar</button>
+        <button onClick={()=>toDecide(candidate.id, true)}>Aprovar</button>
+        <button onClick={()=>toDecide(candidate.id, false)}>Reprovar</button>
       </div>
     </ul>
     </CardCandidate>
@@ -69,19 +63,19 @@ function TripPageDetail() {
 
   return (
     <CardsContainer>
-      <h1>Detalhes da viagem...</h1>
+      <Header 
+        titulo="Detalhes da viagem..."
+      />
       <button onClick={() => navigate(-1)}> &#8592; Voltar</button>
       <CardViagem>
       {isLoading && <h1>Carregando...</h1>}
       {!isLoading && error && <h1>{error}</h1>}
       {!isLoading && data && (
-        <ul>
-          <li>{data.trip.name}</li>
-          <li>{data.trip.description}</li>
-          <li>{data.trip.planet}</li>
-          <li>{data.trip.durationInDays}</li>
-          <li>{data.trip.date}</li>
-        </ul>
+        <>
+          <h1>{data.trip.name}</h1>
+          <p>{data.trip.planet}</p>
+          <p>{data.trip.date}</p>
+        </>
       )}
       </CardViagem>
     

@@ -5,14 +5,15 @@ import { useForm } from "../../components/hook/useForm"
 import { PostCreateTrip } from "../../components/Axios/PostCreateTrip"
 import { useProtectPage } from "../../components/hook/useProtectPage"
 import { DateTrip } from "../../components/constants/Date"
+import { FormContainer } from "./styled";
+import Header from "../../components/Header/Header"
 
 function CreateTripPage() {
   useProtectPage()
   
   const navigate = useNavigate()
   let tripDate = DateTrip()
-  console.log(tripDate)
-  const [body, onChange, clear] = useForm({name: "", planet: "Júpiter", date: "", description: "", durationInDays: ""})
+  const [body, onChange, clear] = useForm({name: "", planet: "", date: "", description: "", durationInDays: ""})
 
   function createTrip (event) {
     event.preventDefault()
@@ -26,8 +27,10 @@ function CreateTripPage() {
 
     return (
       <>
-        <h1>Adicionar Viagem...</h1>
-        <button onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
+        <Header 
+        titulo="Adicionar viagem"
+        />
+        <FormContainer>
         <form onSubmit={createTrip}>
           <label htmlFor="name">Nome da Viagem: </label>
           <input
@@ -48,6 +51,7 @@ function CreateTripPage() {
           value={body.planet}
           onChange={onChange}
           >
+          <option>Seleciona o planeta...</option>
           <option value="Júpiter">Júpiter</option>
           <option value="Lua">Lua</option>
           <option value="Marte">Marte</option>
@@ -93,8 +97,12 @@ function CreateTripPage() {
           value={body.durationInDays}
           onChange={onChange}
           />
-          <button type="submit">Criar Viagem!</button>
+          <div>
+            <button type="submit">Criar Viagem!</button>
+            <button type="button" onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
+          </div>
         </form>
+        </FormContainer>
       </>
     );
   }
