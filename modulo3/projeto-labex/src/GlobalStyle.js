@@ -50,6 +50,15 @@ export const GlobalStyle = createGlobalStyle`
             background-color: var(--background-btn);
         color: var(--roxo-profundo);
         }
+
+        @media only screen and (min-width: 480px) and (max-width: 767px) {
+                font-size: 10px;
+                }
+
+        @media only screen and (max-width: 479px) {
+                font-size: 10px;
+                padding: 8px;
+                }
     }
 
     form {
@@ -70,6 +79,10 @@ export const GlobalStyle = createGlobalStyle`
             font-size: 18px;
             padding: 5px;
             border-radius: 3px;
+
+            @media only screen and (max-width: 285px) {
+                width: 99%;
+                }
         }
 
         div{
@@ -84,6 +97,10 @@ export const GlobalStyle = createGlobalStyle`
             margin: 20px 0 10px 0;
             text-align: center;
         }
+    }
+
+    p{
+        font-size: 16px;
     }
 
 `

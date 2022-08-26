@@ -22,11 +22,16 @@ export const CardViagem = styled.div`
     line-height: 200%;
     text-align: center;
     width: 500px;
+    max-width: 90%;
     padding: 10px;
     margin: 15px 0;
     border-radius: 16px;
     color: var(--roxo-profundo);
     background-color: 	rgba(250, 235, 215, 0.7);
+
+    @media only screen and (max-width: 415px) {
+        flex-direction: column;
+                }
 `
 
 export const CardCandidate = styled.div`
@@ -36,6 +41,7 @@ export const CardCandidate = styled.div`
     gap: 5%;
     height: 250px;
     width: 500px;
+    max-width: 90%;
     padding: 10px;
     margin: 15px 0;
     border-radius: 16px;

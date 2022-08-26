@@ -21,6 +21,7 @@ export const CardViagem = styled.div`
     gap: 5%;
     height: 120px;
     width: 500px;
+    max-width: 90%;
     padding: 10px;
     margin: 15px 0;
     border-radius: 16px;
@@ -30,10 +31,19 @@ export const CardViagem = styled.div`
     div{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         gap: 15px;
     }
 
     span {
         cursor: pointer;
     }
+`
+
+export const DivBtn = styled.div`
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    max-width: 1600px;
+    margin: 15px 0;
 `

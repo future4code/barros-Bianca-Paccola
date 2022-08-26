@@ -27,15 +27,31 @@ export const HeaderWaves = styled.header`
     text-align: center;
     display: inline-block;
     color: antiquewhite;
-    font-size: 2.5rem;
+    font-size: 35px;
+
+        @media only screen and (min-width: 480px) and (max-width: 767px) {
+                font-size: 35px;
+                }
+
+        @media only screen and (max-width: 479px) {
+                font-size: 20px;
+                }
    }
 
     svg {
-            height: 2.3rem;
+            height: 38px;
             margin-top: 0.5rem;
             fill: antiquewhite;
             cursor: pointer;
             z-index: 2;
+
+            @media only screen and (min-width: 480px) and (max-width: 767px) {
+                height: 28px;
+                }
+
+        @media only screen and (max-width: 479px) {
+                height: 25px;
+                }
     }
 `
      

@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
-import { CardsContainer, CardViagem } from "./styled";
+import { CardsContainer, CardViagem, DivBtn } from "./styled";
 import * as Coordinators from '../../Coordinators/Coordinators';
 import { useRequestData } from '../../components/hook/useRequestData';
 import { BASE_URL } from '../../components/constants/constants';
@@ -41,8 +41,10 @@ function AdminHome() {
         <Header 
           titulo="Home Admin"
         />
-        <button onClick={() => Coordinators.goToTripsCreate(navigate)}>Criar Viagem</button>
-        <button onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
+        <DivBtn>
+          <button onClick={() => Coordinators.goToTripsCreate(navigate)}>Criar Viagem</button>
+          <button onClick={() => navigate(-1)}> 	&#8592; Voltar</button>
+        </DivBtn>
         <CardsContainer>
           {isLoading && <h1>Carregando...</h1>}
           {!isLoading && error && <h1>{error}</h1>}
