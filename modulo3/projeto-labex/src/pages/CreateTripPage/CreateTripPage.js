@@ -19,7 +19,7 @@ function CreateTripPage() {
     event.preventDefault()
     PostCreateTrip(`${BASE_URL}/trips`, body,  { 
       headers: {
-        auth: localStorage.getItem("token")
+        auth: sessionStorage.getItem("token")
     }
       })
       clear()

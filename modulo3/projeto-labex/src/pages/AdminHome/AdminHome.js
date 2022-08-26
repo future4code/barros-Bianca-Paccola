@@ -21,7 +21,7 @@ function AdminHome() {
   function tripDelete (id) {
     if(window.confirm("Tem certeza que deseja excluir")){
       DeleteTrip(`${BASE_URL}/trips/${id}`, 
-        { headers: { auth: localStorage.getItem("token") } }).then(()=>setReload(!reload))
+        { headers: { auth: sessionStorage.getItem("token") } }).then(()=>setReload(!reload))
     }
   }
   

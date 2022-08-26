@@ -15,13 +15,13 @@ function TripPageDetail() {
   const tripId = pathParams.id
   const [data, isLoading, error, reload, setReload] = useRequestData(
     `${BASE_URL}/trip/${tripId}`,
-    { headers: { auth: localStorage.getItem("token") } }
+    { headers: { auth: sessionStorage.getItem("token") } }
   );
   
   function toDecide (id, boolean) { 
     PutDecide(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
     { approve: boolean }, 
-    { headers: {auth: localStorage.getItem("token")} }).then(()=>setReload(!reload))
+    { headers: {auth: sessionStorage.getItem("token")} }).then(()=>setReload(!reload))
   }
   
   const candidacies = data && data.trip.candidates.map((candidate)=>{

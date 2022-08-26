@@ -5,11 +5,11 @@ import * as Coordinators from "../../Coordinators/Coordinators";
 
 function Header(props) {
   const navigate = useNavigate();
-  const token = localStorage.getItem("token")
+  const token = sessionStorage.getItem("token")
 
   function logout(){
     if(window.confirm("Deseja fazer logout?")){
-      localStorage.removeItem("token")
+      sessionStorage.removeItem("token")
       Coordinators.goToHome(navigate)
     }
   }

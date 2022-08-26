@@ -4,7 +4,7 @@ import * as Coordinators from "../../Coordinators/Coordinators"
 
 export function useProtectPage () {
     const navigate = useNavigate()
-    const token = localStorage.getItem("token")
+    const token = sessionStorage.getItem("token")
     
     useEffect(()=>{
         if(!token){ Coordinators.goToLogin(navigate) }

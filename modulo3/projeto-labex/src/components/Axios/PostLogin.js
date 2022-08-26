@@ -6,7 +6,7 @@ export function PostLogin(url,body, navigate){
     return (
         axios.post(url, body).then((response)=>{
             goToTripListAdmin(navigate)
-            localStorage.setItem('token', response.data.token)
+            sessionStorage.setItem('token', response.data.token)
         }).catch((error)=>{
             alert(`Atenção: Dados incorretos ou usuário não cadastrado!!! ${error}`)
         }) 
