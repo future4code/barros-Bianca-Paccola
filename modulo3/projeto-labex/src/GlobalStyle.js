@@ -51,11 +51,12 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--roxo-profundo);
         }
 
-        @media only screen and (min-width: 480px) and (max-width: 767px) {
-                font-size: 10px;
+        @media only screen and (max-width: 480px) {
+                font-size: 12px;
+                padding: 10px;
                 }
 
-        @media only screen and (max-width: 479px) {
+                @media only screen and (max-width: 281px) {
                 font-size: 10px;
                 padding: 8px;
                 }
