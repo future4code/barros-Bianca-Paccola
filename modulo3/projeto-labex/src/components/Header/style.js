@@ -10,7 +10,6 @@ export const HeaderWaves = styled.header`
     max-width: 1600px;
    }
    
-
    div{
            position: absolute;
            bottom: -1px;
@@ -28,7 +27,6 @@ export const HeaderWaves = styled.header`
     text-align: center;
     display: inline-block;
     color: antiquewhite;
-    letter-spacing: .2rem;
     font-size: 2.5rem;
    }
 

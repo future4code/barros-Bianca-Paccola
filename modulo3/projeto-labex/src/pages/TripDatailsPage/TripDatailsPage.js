@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRequestData } from "../../components/hook/useRequestData";
 import { BASE_URL } from "../../components/constants/constants";
 import { CardCandidate, CardsContainer, CardViagem } from "./styled";
 import { useProtectPage } from "../../components/hook/useProtectPage"
-import { PutDecide } from "../../components/Axios/PutDecide";
 import Header from "../../components/Header/Header"
 
 function TripPageDetail() {
@@ -12,23 +12,26 @@ function TripPageDetail() {
   const navigate = useNavigate();
   const pathParams = useParams()
   const tripId = pathParams.id
-  const [data, isLoading, error] = useRequestData(
+  const [data, isLoading, error, reload, setReload] = useRequestData(
     `${BASE_URL}/trip/${tripId}`,
     { headers: { auth: localStorage.getItem("token") } }
   );
   
   function toDecide (id, boolean) { 
-
-      PutDecide(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
-      {
-        approve: boolean
-      }, 
-      { headers: { auth: localStorage.getItem("token") } }
-      ) 
-
+        axios.put(`${BASE_URL}/trips/${tripId}/candidates/${id}/decide`, 
+        { approve: boolean }, 
+        { headers: {auth: localStorage.getItem("token")} }).then(()=>{
+          if(boolean === true){
+              alert("Candidato aprovado!")
+          } else {
+              alert("Candidato Reprovado")
+          }
+          setReload(!reload)
+      }).catch(()=>{
+          alert("Oops... Houve algum erro na sua requisição... Tente novamente!")
+      }) 
   }
   
-
   const candidacies = data && data.trip.candidates.map((candidate)=>{
     return (
       <CardCandidate>

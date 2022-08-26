@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import { CardsContainer, CardViagem } from "./styled";
 import * as Coordinators from '../../Coordinators/Coordinators';
 import { useRequestData } from '../../components/hook/useRequestData';
 import { BASE_URL } from '../../components/constants/constants';
-import { DeleteTrip } from "../../components/Axios/DeleteTrip";
 import { useProtectPage } from "../../components/hook/useProtectPage";
 import Header from "../../components/Header/Header"
 
 function AdminHome() {
   useProtectPage()
   const navigate = useNavigate()
-  const [listaViagens, isLoading, error] = useRequestData(`${BASE_URL}/trips`)
+  const [listaViagens, isLoading, error, reload, setReload] = useRequestData(`${BASE_URL}/trips`)
   
   function handleClick(id) {
     Coordinators.goToTripDetails(navigate, id)
@@ -19,8 +19,13 @@ function AdminHome() {
   
   function tripDelete (id) {
     if(window.confirm("Tem certeza que deseja excluir")){
-      DeleteTrip(`${BASE_URL}/trips/${id}`, 
-      { headers: { auth: localStorage.getItem("token") } })
+      axios.delete(`${BASE_URL}/trips/${id}`, 
+      { headers: { auth: localStorage.getItem("token") } }).then(()=>{
+        alert("Viagem DELETADA com Sucesso!!!")
+        setReload(!reload)
+    }).catch(()=>{
+        alert("Houve algum erro ao tentar processar sua requisição... Atualize a página e tente novamente...")
+    }) 
     }
   }
   
