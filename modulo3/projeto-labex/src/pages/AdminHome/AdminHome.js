@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import { CardsContainer, CardViagem } from "./styled";
 import * as Coordinators from '../../Coordinators/Coordinators';
@@ -14,9 +13,7 @@ function AdminHome() {
   const navigate = useNavigate()
   const [listaViagens, isLoading, error, reload, setReload] = useRequestData(`${BASE_URL}/trips`)
   
-  function handleClick(id) {
-    Coordinators.goToTripDetails(navigate, id)
-  }
+  function handleClick(id) {Coordinators.goToTripDetails(navigate, id)}
   
   function tripDelete (id) {
     if(window.confirm("Tem certeza que deseja excluir")){
