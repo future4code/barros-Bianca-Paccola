@@ -34,3 +34,5 @@ Login de admin:
 ![form](./print_form.png)
 ![list](./print_list_admin.png)
 ![details](./print_details.png)
+
+![grid](FotoGrid.jpg)

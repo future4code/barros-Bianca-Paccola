@@ -18,6 +18,7 @@ function LoginPage() {
   }
 
   return (
+    <>
     <FormContainer>
       <Header 
       titulo="Login"
@@ -52,6 +53,7 @@ function LoginPage() {
         </div>
       </form>
     </FormContainer>
+    </>
   );
 }
 

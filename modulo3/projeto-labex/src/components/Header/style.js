@@ -34,13 +34,13 @@ export const HeaderWaves = styled.header`
                 }
 
         @media only screen and (max-width: 479px) {
-                font-size: 20px;
+                font-size: 25px;
                 }
    }
 
     svg {
             height: 38px;
-            margin-top: 0.5rem;
+            margin: 0.5rem 0.5rem 0 0.5rem;
             fill: antiquewhite;
             cursor: pointer;
             z-index: 2;

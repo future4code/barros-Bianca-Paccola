@@ -66,7 +66,7 @@ export const GlobalStyle = createGlobalStyle`
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 35px 40px;
+        padding: 35px 25px;
         width: 500px;
         max-width: 90%;
         margin: 15px 10px;
