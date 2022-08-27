@@ -79,7 +79,7 @@ function ApplicationFormPage() {
         <label htmlFor="profession">Insira sua profissão:</label>
         <input type="text" 
         placeholder="Profissão" 
-        minLength="10"
+        minLength="6"
         id="profession"
         name="profession"
         required 
