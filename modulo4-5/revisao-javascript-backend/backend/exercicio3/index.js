@@ -26,9 +26,10 @@ function login(email, password) {
   } else if (/^.{6,}$/.test(password) === false) {
     return "Senha deve possuir no mínimo 6 caracteres";
   } else {
-    const user = contas.filter((item) => item.email === email);
+    const user = contas.find((item) => item.email === email);
+    console.log(user)
 
-    if (user.length > 0 && user[0].password === password) {
+    if (user && user.password === password) {
       return "Login bem-sucedido";
     } else {
       return "E-mail ou senha incorretos";
