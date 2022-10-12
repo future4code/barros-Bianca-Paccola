@@ -1,0 +1,11 @@
+{
+  "name": "math-operations",
+  "version": "1.0.0",
+  "description": "operações matemática",
+  "main": "mathOperations.js",
+  "scripts": {
+    "start": "node ./mathOperations.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
