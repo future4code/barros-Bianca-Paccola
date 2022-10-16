@@ -1,0 +1,24 @@
+{
+  "name": "intro-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "exerc01": "tsc && node ./build/exerc01.js",
+    "exerc02": "tsc && node ./build/exerc02.js",
+    "exerc03": "tsc && node ./build/exerc03.js",
+    "exerc04": "tsc && node ./build/exerc04.js",
+    "exerc05": "tsc && node ./build/exerc05.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
