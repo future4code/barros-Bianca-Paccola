@@ -1,4 +1,4 @@
-function checaRenovacaoRG(anoAtual:number, anoNascimento:number, anoEmissao:number ) {
+function checaRenovacaoRG(anoAtual:number, anoNascimento:number, anoEmissao:number ) : string {
     let idade = anoAtual - anoNascimento
     let tempoCarteira = anoAtual - anoEmissao
    

@@ -1,4 +1,4 @@
-function checaTriangulo(a:number, b:number, c:number) {
+function checaTriangulo(a:number, b:number, c:number) : string {
     if (a !== b && b !== c) {
       return "Escaleno";
     } else if (a === b && b === c) {
