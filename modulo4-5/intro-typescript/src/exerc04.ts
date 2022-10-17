@@ -1,4 +1,4 @@
-function comparaDoisNumeros(num1:number, num2:number) : number {
+export function comparaDoisNumeros(num1:number, num2:number) : number {
     let maiorNumero;
     let menorNumero;
   
@@ -15,4 +15,4 @@ function comparaDoisNumeros(num1:number, num2:number) : number {
     return diferenca 
   }
 
-  console.log(comparaDoisNumeros(10,20))
+  console.log(comparaDoisNumeros(10,20));
