@@ -1,0 +1,12 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "adiciona uma tafera a lista de tarefas",
+  "type": "module",
+  "main": "myList.js",
+  "scripts": {
+    "start": "node ./toDoList.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
