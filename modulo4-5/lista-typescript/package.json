@@ -11,7 +11,8 @@
     "exerc05": "tsc && node ./build/exerc05.js",
     "exerc06": "tsc && node ./build/exerc06.js",
     "exerc07": "tsc && node ./build/exerc07.js",
-    "exerc08": "tsc && node ./build/exerc08.js"
+    "exerc08": "tsc && node ./build/exerc08.js",
+    "exerc09": "tsc && node ./build/exerc09.js"
   },
   "keywords": [],
   "author": "",

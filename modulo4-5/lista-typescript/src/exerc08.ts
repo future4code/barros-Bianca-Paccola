@@ -6,8 +6,7 @@ function getFactorial (word: string) : number {
     if (word.length === 1) {
         return 1;
     }
-    
-    console.log(word.length)
+
     return word.length * getFactorial(word.substring(1)) //Recursion
 }
 
