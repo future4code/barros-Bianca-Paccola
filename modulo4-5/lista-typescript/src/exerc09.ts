@@ -1,5 +1,11 @@
-function cpfValidator (cpf: string) : boolean {
+//O CPF consiste de 11 dígitos cuja configuração respeita o formato XXX.XXX.XXX-XX. Para a construção de um número de CPF as seguintes regras são aplicadas.
+// - Os oito primeiros dígitos são os número-base
+// - O nono dígito é a região fiscal
+// - O penúltimo dígito é o dígito verificador (DV) módulo 11 dos nove dígitos anteriores
+// - O último dígito é o DV módulo 11 dos dez dígitos anteriores
+//Você deve criar uma função que receba o CPF no formato “xxx.xxx.xxx-xx” e faça uma validação do valor recebido. Caso o CPF recebido seja válido retorne um True e caso seja inválido retorne False
 
+function cpfValidator (cpf: string) : boolean {
 let cpfArray = cpf.replaceAll(".", "").replaceAll("-", "").split("").map(Number)
     
     let penultDV = 0;
@@ -18,8 +24,6 @@ let cpfArray = cpf.replaceAll(".", "").replaceAll("-", "").split("").map(Number)
         penultDV = 0;
     }
 
-    console.log(penultDV)
-
     let lastDV = 0;
     let sum2 = 11;
 
@@ -27,12 +31,11 @@ let cpfArray = cpf.replaceAll(".", "").replaceAll("-", "").split("").map(Number)
         lastDV += cpfArray[i] * sum2;
         sum2--;  
     }
+    
+    lastDV += penultDV * 2
+    lastDV = 11 - (lastDV % 11)
 
-    lastDV = lastDV % 11;
-
-    if ((11 - lastDV) < 10 ){
-        lastDV = 11 - lastDV;
-    } else {
+    if (lastDV >= 10) {
         lastDV = 0;
     }
 
@@ -44,4 +47,4 @@ let cpfArray = cpf.replaceAll(".", "").replaceAll("-", "").split("").map(Number)
 
 }
 
-console.log(cpfValidator("407.919.448-08"));
+console.log(cpfValidator("145.382.206-20"));
