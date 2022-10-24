@@ -11,23 +11,23 @@
 // Além dessas informações presentes em todos os filmes, alguns deles possuem uma informação opcional: 4. pontuação em site de resenha (ex. Metacritic, RotenTomatoes).
 // Considerando todas estas informações, crie uma função que receba todas essas informações como parâmetros( 3 essenciais + 1 opcional) e retorne todas informações organizadas em um `type`.
 
-enum GENERO {
-	ACAO="ação",
+enum GENRES {
+	ACTION="action",
 	DRAMA="drama",
-	COMEDIA="comédia",
+	COMEDY="comedy",
 	ROMANCE="romance",
-	TERROR="terror"
+	HORROR="horror"
 }
 
 type Movie = {
-    nome: string,
-    anoLancamento: number,
-    genero: string,
-    pontuacao?: number
+    name: string,
+    release: number,
+    genre: string,
+    pontuation?: number
 }
 
-function getMovie (nome: string, anoLancamento: number, genero: string, pontuacao?: number) : Movie {
-    return {nome, anoLancamento, genero, pontuacao}
+function getMovie (name: string, release: number, genre: string, pontuation?: number) : Movie {
+    return {name, release, genre, pontuation}
 }
 
-console.log(getMovie("Duna", 2021, GENERO.ACAO))
+console.log(getMovie("Duna", 2021, GENRES.ACTION))
