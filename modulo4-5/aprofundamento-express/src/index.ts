@@ -19,6 +19,13 @@ app.get("/todos", (req: Request, res: Response) => {
     res.status(200).send(toDoListStatus);
 });
 
+//Get list by userId
+app.get("/todos/:userId", (req: Request, res: Response) => {
+    const id = Number(req.params.userId);
+    const userList = toDos.filter((item) => item.userId === id);
+    res.status(200).send(userList);
+});
+
 //Add to do list
 // Request => headers: authorization = number, body = "titles": ["Levar o dog passear", "Fazer almoço", "Pagar contas"]
 app.put("/todo/add", (req: Request, res: Response) => {
