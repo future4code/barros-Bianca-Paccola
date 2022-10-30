@@ -7,6 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//Read file sync Node - Lógica para ler um arquivo e converter de json para objeto js
+const fs = require('fs');
+
 //Test
 app.get("/ping", (req: Request, res: Response) => {
     res.status(200).send("Pong! 🏓")
@@ -15,7 +18,7 @@ app.get("/ping", (req: Request, res: Response) => {
 //Get To do List with status true or false
 app.get("/todos", (req: Request, res: Response) => {
     const toDoStatus = req.body.completed
-    const toDoListStatus = toDos.filter((todo)=> todo.completed === toDoStatus);
+    const toDoListStatus = toDos.filter((item)=> item.completed === toDoStatus);
     res.status(200).send(toDoListStatus);
 });
 
@@ -24,7 +27,7 @@ app.get("/todos/:userId", (req: Request, res: Response) => {
     const id = Number(req.params.userId);
     const userList = toDos.filter((item) => item.userId === id);
     const otherList = toDos.filter((item) => item.userId !== id);
-    const list = toDos.map((item)=> {
+    const list = toDos.map(()=> {
         return {
             todos: {
                 selectedUser: [
@@ -53,7 +56,9 @@ app.put("/todo/add", (req: Request, res: Response) => {
             completed: false
         })
     })
-    res.status(200).send(toDos);
+    fs.writeFileSync("./src/todolist.ts", JSON.stringify(toDos)); //Write file sync Node - Lógica para gravar contéudo no arquivo em formato Json
+    const list: Todo[] = JSON.parse(fs.readFileSync('./src/todolist.ts', 'utf-8'));
+    res.status(200).send(list);
 });
 
 //Change the status
@@ -87,6 +92,7 @@ app.post("/todo/post", (req: Request, res: Response) => {
     const toDoList = body.map((item: string, index: number) => {
         return {userId: userId, id: index, title: item, completed: false}
     })
+    fs.writeFileSync("./src/todolist.ts", JSON.stringify(toDoList));
     res.status(200).send(toDoList);
 });
 
