@@ -23,7 +23,20 @@ app.get("/todos", (req: Request, res: Response) => {
 app.get("/todos/:userId", (req: Request, res: Response) => {
     const id = Number(req.params.userId);
     const userList = toDos.filter((item) => item.userId === id);
-    res.status(200).send(userList);
+    const otherList = toDos.filter((item) => item.userId !== id);
+    const list = toDos.map((item)=> {
+        return {
+            todos: {
+                selectedUser: [
+                    ...userList
+                ],
+                others: [
+                    ...otherList
+                ]
+            }
+        }
+    })
+    res.status(200).send(list);
 });
 
 //Add to do list
