@@ -69,10 +69,14 @@ app.put("/todo/:id",  (req: Request, res: Response) => {
 //Delete item
 app.delete("/todo/:id",  (req: Request, res: Response) => {
     const itemId = Number(req.params.id)
-    const itemIndex = toDos.findIndex((item) => item.id === itemId);
-    toDos.splice(itemIndex,1)
-
-    res.status(200).send(toDos);
+    const userIdParam = Number(req.headers.authorization)
+    const itemIndex = toDos.findIndex((item) => item.id === itemId && item.userId === userIdParam);
+    if(itemIndex > 0) {
+        toDos.splice(itemIndex,1)
+        res.status(200).send("Post excluído da base da dados.");
+    } else {
+        res.status(400).send("Post não encontrado.");
+    }
 });
 
 //Build an to do list
