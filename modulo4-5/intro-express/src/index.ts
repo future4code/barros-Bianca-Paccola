@@ -28,6 +28,31 @@ app.get("/posts/:userId", (req: Request, res: Response) => {
     res.status(200).send(filteredPosts)
 });
 
+//Delete post
+app.put("/posts/:id", (req: Request, res: Response) => {
+    const userIdParam = Number(req.headers.authorization)
+    const postIdParam = Number(req.params.id)
+    const postIndex = posts.findIndex((post)=> post.id === postIdParam && post.userId === userIdParam)
+    if(postIndex < 0) {
+        res.status(400).send("Post não encontrado.")
+    } else {
+        posts.splice(postIndex, 1)
+        res.status(200).send("Post excluído da base de dados.")
+    }
+});
+
+//Delete user
+app.put("/user", (req: Request, res: Response) => {
+    const userIdParam = Number(req.headers.authorization)
+    const postIndex = users.findIndex((post)=> post.id === userIdParam)
+    if(postIndex < 0) {
+        res.status(400).send("Usuário não encontrado.")
+    } else {
+        users.splice(postIndex, 1)
+        res.status(200).send("Usuário excluído da base de dados.")
+    }
+});
+
 app.listen(3000, () => {
     console.log("Server is running in http://localhost:3000");
 });
