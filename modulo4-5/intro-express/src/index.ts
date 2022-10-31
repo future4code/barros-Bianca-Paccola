@@ -29,7 +29,7 @@ app.get("/posts/:userId", (req: Request, res: Response) => {
 });
 
 //Delete post
-app.put("/posts/:id", (req: Request, res: Response) => {
+app.delete("/posts/:id", (req: Request, res: Response) => {
     const userIdParam = Number(req.headers.authorization)
     const postIdParam = Number(req.params.id)
     const postIndex = posts.findIndex((post)=> post.id === postIdParam && post.userId === userIdParam)
@@ -42,7 +42,7 @@ app.put("/posts/:id", (req: Request, res: Response) => {
 });
 
 //Delete user
-app.put("/user", (req: Request, res: Response) => {
+app.delete("/user", (req: Request, res: Response) => {
     const userIdParam = Number(req.headers.authorization)
     const postIndex = users.findIndex((post)=> post.id === userIdParam)
     if(postIndex < 0) {
