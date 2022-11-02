@@ -2,7 +2,7 @@ import { Product } from "./types";
 
 export const products: Product[] = [
     {
-        id: "3213252452510035", //criar id's aleatórios.
+        id: "3213252452510035",
         name: "Livro: Uma Odisséia no espaço",
         price: 29.90
     },
@@ -32,7 +32,7 @@ export const products: Product[] = [
         price: 39.90
     },
     {
-        id: "303421520431003",
+        id:"303421520431003",
         name: "Livro: O Livro Dos Espíritos",
         price: 29.90
     }
