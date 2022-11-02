@@ -21,11 +21,11 @@ app.get("/products", (req: Request, res: Response) => {
     }
 });
 
-//change the price of a product
+//change price and/or name of a product
 app.put("/product/:id", (req: Request, res: Response) => {
   try {
     const productId = req.params.id;
-    const newPrice = req.body.price;
+    const newInfo = req.body;
     const productIndex = datas.products.findIndex(
       (product) => product.id === productId
     );
@@ -35,17 +35,22 @@ app.put("/product/:id", (req: Request, res: Response) => {
       error.name = "NotFound";
       throw error;
     }
-    if (newPrice <= 0) {
+    if (!newInfo.name && !newInfo.price) {
+      const error = new Error("Precisa informar nome e/ou preço a ser modificados.");
+      error.name = "IncompleteData";
+      throw error;
+    }
+    if (newInfo.price <= 0) {
       const error = new Error("O preço do produto precisa ser maior que R$0");
       error.name = "IncompleteData";
       throw error;
     }
-    if (!newPrice) {
-      const error = new Error("Precisa informar o preço do produto!");
+    if (newInfo.name && typeof newInfo.name !== "string") {
+      const error = new Error("O nome do produto precisa ser passado em formato de string.");
       error.name = "IncompleteData";
       throw error;
     }
-    if (typeof newPrice !== "number") {
+    if (newInfo.price && typeof newInfo.price !== "number") {
       const error = new Error(
         "O preço precisa ser informado em formato númerico!"
       );
@@ -54,9 +59,15 @@ app.put("/product/:id", (req: Request, res: Response) => {
     }
 
     //return
-    datas.products[productIndex].price = newPrice;
+    if(newInfo.price && !newInfo.name) {
+      datas.products[productIndex].price = newInfo.price;
+    } else if (newInfo.name && !newInfo.price) {
+      datas.products[productIndex].name = newInfo.name
+    } else if (newInfo.name && newInfo.price) {
+      datas.products[productIndex].price = newInfo.price;
+      datas.products[productIndex].name = newInfo.name;
+    }
     res.status(200).send(datas.products);
-    // res.status(400).send("Id não encontrado na base de dados.")
   } catch (err: any) {
     if (err.name === "NotFound") {
       res.status(404).send(err.message);
