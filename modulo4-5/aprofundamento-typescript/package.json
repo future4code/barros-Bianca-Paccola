@@ -1,0 +1,21 @@
+{
+  "name": "aprofundamento-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "exerc01": "tsc && node ./build/exerc01.js",
+    "exerc02": "tsc && node ./build/exerc02.js",
+    "exerc03": "tsc && node ./build/exerc03.js",
+    "exerc04": "tsc && node ./build/exerc04.js",
+    "exerc05": "tsc && node ./build/exerc05.js",
+    "exerc06": "tsc && node ./build/exerc06.js",
+    "exerc07": "tsc && node ./build/exerc07.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
