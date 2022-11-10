@@ -1,12 +1,12 @@
-<center> 
+<div align="center">
 
 # EXERCÍCIOS DE INTRODUÇÃO A SQL
 
 ![logospng](./mysql-256.png)
 
-</center>
+</div>
 
-### <center> ----------- EXERCÍCIO 01 ----------- </center> </br>
+<h3 align="center"> ----------- EXERCÍCIO 01 ----------- </h3> </br>
 
 > Durante essa semana iremos construir, nos exercícios propostos, um pequeno sistema de um cinema. Ele deverá ter informações sobre atores e atrizes, filmes, ingressos, e mais. Faça os exercícios abaixo em ordem. 
 Começaremos pela tabela de atores. Nós vamos guardar as seguintes informações: id, nome, salário, data de nascimento e sexo. </br>
@@ -33,7 +33,7 @@ CREATE TABLE Actor (
 
 **RESPOSTA:** Mostra todos a formatação dos campos: nome das colunas, type de dados de cada coluna, se a coluna pode ou não se nula.
 
-### <center> ----------- EXERCÍCIO 02 ----------- </center> <br>
+<h3 align="center"> ----------- EXERCÍCIO 02 ----------- </h3> <br>
 
 > O próximo passo é colocar dados nessa tabela. Vamos começar criando a linha de um ator brasileiro muito famoso.
 ```
@@ -130,7 +130,7 @@ VALUES(
   "female"
 );
 ``` 
-### <center> ----------- EXERCÍCIO 03 ----------- </center> <br>
+<h3 align="center"> ----------- EXERCÍCIO 03 ----------- </h3> <br>
 
 > Com os dados criados, podemos nos aventurar nas queries de seleção de dados. Elas são indicadas pelo operador SELECT. Talvez a query mais famosa que existe é:*
 
@@ -183,7 +183,7 @@ SELECT id, nome from Actor WHERE id = "002";
 **RESPOSTA:** gerou erro pois o select chama pela coluna nome e essa coluna não existe. O correto seria name.
 
 
-### <center> ----------- EXERCÍCIO 04 ----------- </center> <br>
+<h3 align="center"> ----------- EXERCÍCIO 04 ----------- </h3> <br>
 
 > Para finalizar o nosso estudo nas tabelas de atores, vamos fazer uma query mais complexa. Queremos encontrar todos os atores e atrizes:
 
@@ -215,7 +215,7 @@ SELECT * FROM Actor WHERE name LIKE "%G%" OR name LIKE "%g%";
 SELECT * FROM Actor WHERE (name LIKE "%g%" OR name LIKE "%G%" OR name LIKE "%a%" OR name LIKE "%A%") AND salary BETWEEN 350000 AND 900000;
 ``` 
 
-### <center> ----------- EXERCÍCIO 05 ----------- </center> <br>
+<h3 align="center"> ----------- EXERCÍCIO 05 ----------- </h3> <br>
 
 *Precisamos criar a tabela de Filmes com as informações: id, nome, sinopse, data de lançamento e avaliação (que pode ser de 0 a 10)*
 
@@ -268,7 +268,7 @@ VALUES(
     10
 );
 ```
-### <center> ----------- EXERCÍCIO 06 ----------- </center> <br>
+<h3 align="center"> ----------- EXERCÍCIO 06 ----------- </h3> <br>
 
 Escreva uma query que:
 
@@ -289,7 +289,7 @@ SELECT * FROM Movies WHERE name LIKE "%tropa%";
 ```
 SELECT id, name, sinopse FROM Movies WHERE rating >= 7;
 ``` 
-### <center> ----------- EXERCÍCIO 07 ----------- </center> <br>
+<h3 align="center"> ----------- EXERCÍCIO 07 ----------- </h3> <br>
 
 > Escreva uma query que:
 
