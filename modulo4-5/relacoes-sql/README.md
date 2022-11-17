@@ -192,7 +192,7 @@ LEFT JOIN MovieCast ON Movie.id = MovieCast.movie_id
 
 *a) Que tipo de relação é essa?*
 
-**RESPOSTA:** 1:1
+**RESPOSTA:** 1:n
 
 *b) Explicite a query que você usou para criar a tabela*
 
