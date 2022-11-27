@@ -1,16 +1,4 @@
-import express from "express"
+import app from "./app";
+import getAdress from "./endpoints/getAdress";
 
-import cors from 'cors'
-
-const app = express()
-
-app.use(express.json())
-
-app.use(cors())
-
-
-
-
-app.listen(3000, () => {
-    console.log("Server is running in http://localhost:3000");
-});
+app.get('/adress', getAdress);
