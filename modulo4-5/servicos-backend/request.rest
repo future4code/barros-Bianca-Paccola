@@ -5,3 +5,8 @@ content-type: application/json
     "cep": "18775054",
     "numero": 114 
 }
+
+###
+
+POST http://localhost:3003/email
+content-type: application/json
