@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 module.exports = {
     host: 'smtp.ethereal.email',
     port: 587,
