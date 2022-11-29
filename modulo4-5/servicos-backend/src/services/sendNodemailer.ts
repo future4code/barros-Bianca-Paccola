@@ -1,13 +1,16 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const nodemailer = require('nodemailer');
-const SMTP_CONFIG = require('../configNodemailer/smtp');
 
 const transporter = nodemailer.createTransport({
-    host: SMTP_CONFIG.host,
-    port: SMTP_CONFIG.port,
+    host: 'smtp.gmail.com',
+    port: 587,
     secure: false,
     auth: {
-        user: SMTP_CONFIG.user,
-        pass: SMTP_CONFIG.pass,
+        user: process.env.NODEMAILER_USER,
+        pass: process.env.NODEMAILER_PASS,
     },
     tls: {
         ciphers: "SSLv3",
@@ -17,8 +20,8 @@ const transporter = nodemailer.createTransport({
 
 async function sendNodemailer () {
     const mailSend = await transporter.sendMail({
-        from: "Bianca Paccola <verdie.fahey47@ethereal.email",
-        to: ["projetos_jbl-aaaaiax6fosqmlb2s7ipkez3d4@labenualunos.slack.com"],
+        from: process.env.NODEMAILER_USER,
+        to: "projetos_jbl-aaaaiax6fosqmlb2s7ipkez3d4@labenualunos.slack.com",
         subject: "[BARROS - Bianca Paccola]",
         text: "Coloquei este email para ser enviado quando bate no endpoint /email"
     })
