@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import connection from "../database/connection"
-import { TABLE_USERS } from "../database/tableNames"
 import {User} from "../class/User"
+import { UserDB } from "../class/UserDB"
 
 export const createUser = async (req: Request, res: Response) => {
     let errorCode = 400
@@ -19,12 +19,9 @@ export const createUser = async (req: Request, res: Response) => {
             password
         )
 
-        await connection(TABLE_USERS).insert({
-            id: newUser.id,
-            email: newUser.email,
-            password: newUser.password
-        })
-        
+        const userDB = new UserDB(connection)
+        userDB.insertProduct(newUser)
+
         res.status(201).send({ message: "Usuário criado", user: newUser })
     } catch (error) {
         res.status(errorCode).send({ message: error.message })

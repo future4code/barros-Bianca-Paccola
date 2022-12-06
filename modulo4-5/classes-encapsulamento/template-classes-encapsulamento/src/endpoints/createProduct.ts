@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import connection from "../database/connection"
-import { TABLE_PRODUCTS } from "../database/tableNames"
 import { Product } from "../class/Product"
+import { ProductDB } from "../class/ProductDB"
 
 export const createProduct = async (req: Request, res: Response) => {
     let errorCode = 400
@@ -19,11 +19,8 @@ export const createProduct = async (req: Request, res: Response) => {
             price
         )
 
-        await connection(TABLE_PRODUCTS).insert({
-            id: newProduct.id,
-            name: newProduct.name,
-            price: newProduct.price
-        })
+        const productDB = new ProductDB(connection)
+        productDB.insertProduct(newProduct)
         
         res.status(201).send({ message: "Produto criado", product: newProduct })
     } catch (error) {

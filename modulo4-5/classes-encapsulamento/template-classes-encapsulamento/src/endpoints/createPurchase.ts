@@ -1,8 +1,9 @@
 import { Request, Response } from "express"
 import connection from "../database/connection"
-import { TABLE_PRODUCTS, TABLE_PURCHASES, TABLE_USERS } from "../database/tableNames"
+import { TABLE_PRODUCTS, TABLE_USERS } from "../database/tableNames"
 import { Product } from "../class/Product"
 import { Purchase } from "../class/Purchase"
+import { PurchaseDB } from "../class/PurchaseDB"
 
 export const createPurchase = async (req: Request, res: Response) => {
     let errorCode = 400
@@ -47,13 +48,9 @@ export const createPurchase = async (req: Request, res: Response) => {
             product.price * quantity
         )
 
-        await connection(TABLE_PURCHASES).insert({
-            id: newPurchase.id,
-            user_id: newPurchase.userId,
-            product_id: newPurchase.productId,
-            quantity: newPurchase.quantity,
-            total_price: newPurchase.totalPrice
-        })
+        const purchaseDB = new PurchaseDB(connection)
+
+        purchaseDB.insertPurchase(newPurchase)
 
         res.status(201).send({ message: "Compra registrada", purchase: newPurchase })
     } catch (error) {
