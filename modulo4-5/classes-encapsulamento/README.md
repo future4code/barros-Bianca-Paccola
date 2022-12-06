@@ -1,6 +1,6 @@
-# Exrcício da aula de POO (Programação Orientada a Objetos)
+# Exercício da aula de POO (Programação Orientada a Objetos)
 
-Neste exercício foi fornecido um template com código pronto, no qual os alunos tinham como atividade refatora-lo para que recebesse a construção dos objetos e seus métodos através de suas respectivas **classes**
+> Neste exercício foi fornecido um template com código pronto, no qual os alunos tinham como atividade refatora-lo para que recebesse a construção dos objetos e seus métodos através de suas respectivas **classes**
 
 Tecnologias usadas:
 
