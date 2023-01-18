@@ -4,7 +4,7 @@ import { TABLE_USER } from "./tableNames";
 
 export class UserDatabase extends BaseDatabase {
 
-  insertUser = async (user: User) => {
+  insertUser = async (user: User):Promise<void> => {
     try {
       await BaseDatabase.connection
         .insert({
@@ -18,5 +18,17 @@ export class UserDatabase extends BaseDatabase {
         throw new Error(error.sqlMessage || error.message);   
     }
   };
+
+  selectUsers = async ():Promise<any> => {
+    try {
+      const allUsers = await BaseDatabase.connection
+      .select().into(TABLE_USER)
+
+      return allUsers;
+
+    } catch (error:any) {
+      throw new Error(error.sqlMessage || error.message);  
+    }
+  }
 
 }

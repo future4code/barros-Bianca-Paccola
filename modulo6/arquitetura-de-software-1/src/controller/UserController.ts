@@ -21,4 +21,16 @@ export class UserController {
             res.status(400).send(error.message)
         }
     }
+
+    getAllUsers = async (req: Request, res: Response):Promise<void> => {
+        try {
+            const userBusiness = new UserBusiness()
+            const results = await userBusiness.getAllUsers()
+    
+            res.status(200).send({users: results})
+            
+        } catch (error:any) {
+            res.status(400).send(error.message)
+        }
+    }
 }

@@ -27,4 +27,17 @@ export class UserBusiness {
             throw new Error(error.message || "Erro ao inserir usuário na base de dados. Por favor check as informações.");
         }
     }
+
+    getAllUsers = async ():Promise<void> => {
+        try {
+            const userDatabase = new UserDatabase();
+            const allUsers = await userDatabase.selectUsers();
+
+            return allUsers;
+
+        } catch (error:any) {
+            throw new Error(error.message || "Erro ao buscar os usuários. Tente atualizar a página.");
+        }
+
+    }
 }
