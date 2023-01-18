@@ -30,10 +30,8 @@ export class UserBusiness {
 
     getAllUsers = async ():Promise<void> => {
         try {
-            const userDatabase = new UserDatabase();
-            const allUsers = await userDatabase.selectUsers();
 
-            return allUsers;
+            return new UserDatabase().selectUsers();
 
         } catch (error:any) {
             throw new Error(error.message || "Erro ao buscar os usuários. Tente atualizar a página.");

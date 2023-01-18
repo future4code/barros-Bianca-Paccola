@@ -21,10 +21,10 @@ export class UserDatabase extends BaseDatabase {
 
   selectUsers = async ():Promise<any> => {
     try {
-      const allUsers = await BaseDatabase.connection
+      const results: User[] = await BaseDatabase.connection
       .select().into(TABLE_USER)
 
-      return allUsers;
+      return results;
 
     } catch (error:any) {
       throw new Error(error.sqlMessage || error.message);  
