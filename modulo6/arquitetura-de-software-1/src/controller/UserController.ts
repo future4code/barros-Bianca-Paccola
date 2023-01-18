@@ -33,4 +33,17 @@ export class UserController {
             res.status(400).send(error.message)
         }
     }
+
+    deleteUser = async (req: Request, res: Response):Promise<void> => {
+        try {
+            const userId: string = req.params.id;
+
+            const userBusiness = new UserBusiness()
+            await userBusiness.deleteUSer(userId)
+
+            res.status(201).send({message: "Usuário excluído com sucesso!"});
+        } catch (error:any) {
+            res.status(401).send(error.message)
+        }
+    }
 }
