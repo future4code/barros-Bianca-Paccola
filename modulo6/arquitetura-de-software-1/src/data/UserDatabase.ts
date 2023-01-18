@@ -15,7 +15,7 @@ export class UserDatabase extends BaseDatabase {
         })
         .into(TABLE_USER);
     } catch (error: any) {
-        throw new Error(error.message);   
+        throw new Error(error.sqlMessage || error.message);   
     }
   };
 

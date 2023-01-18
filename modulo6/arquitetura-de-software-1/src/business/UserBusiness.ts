@@ -24,8 +24,7 @@ export class UserBusiness {
             await userDatabase.insertUser(user)
             
         } catch (error: any) {
-            throw new Error(error.message);
-            
+            throw new Error(error.message || "Erro ao inserir usuário na base de dados. Por favor check as informações.");
         }
     }
 }
