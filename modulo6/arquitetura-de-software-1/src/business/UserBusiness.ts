@@ -8,9 +8,12 @@ export class UserBusiness {
             const {id, name, email, password} = user;
             const checkTypes = checkTypeString(user)
 
-            if(!name && !email && !password) {
+            if(!name || !email || !password) {
                 throw new Error("Precisa informar: nome, email e password");
-                
+            }
+
+            if(user.email.indexOf("@") === -1){
+                throw new Error("Email inválido");
             }
 
             if (checkTypes === false) {
