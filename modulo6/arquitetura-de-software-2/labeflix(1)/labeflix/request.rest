@@ -1,0 +1,29 @@
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "testes",
+    "email": "emailteste@email.com",
+    "password": "23432535"
+}
+
+###
+
+GET http://localhost:3003/user/user
+Content-Type: application/json
+
+###
+POST http://localhost:3003/movie/create
+Content-Type: application/json
+
+{
+    "title": "Mr. Nobody",
+    "description": " Nemo, de 118 anos, conta a história de sua vida a um repórter. Na maior parte do tempo ele pensa que tem 34 anos, mas tudo fica confuso ao se concentrar em sua verdadeira idade. Nemo divide sua vida em três partes importantes.",
+    "durationInMinutes": 148,
+    "yearOfRelease": 2009
+}
+
+###
+
+GET http://localhost:3003/movie/movie
+Content-Type: application/json
