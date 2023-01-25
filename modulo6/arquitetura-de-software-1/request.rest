@@ -1,0 +1,21 @@
+//retornar uma lista com todos os usuários
+GET http://localhost:3003/all
+content-type: application/json
+
+###
+
+// Criar um novo usuário
+POST http://localhost:3003/createUser
+content-type: application/json
+
+{
+    "name": "User Teste2",
+    "email": "teste2@email.com",
+    "password": 123456
+}
+
+###
+
+//deletar um usuário a partir de seu id
+DELETE http://localhost:3003/1674012601853
+content-type: application/json
