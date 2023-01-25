@@ -1,6 +1,6 @@
 import { MovieDatabase } from "../data/MovieDatabase";
-import { v4 as generateId } from "uuid";
 import { MovieDataInsertDTO, MovieInputDTO } from "../model/movieDTO";
+import { generateId } from "../services/idGenerator";
 
 export class MovieBusiness {
   async create(movie: MovieInputDTO): Promise<void> {
@@ -14,7 +14,7 @@ export class MovieBusiness {
         throw new Error("Dados incompletos.");
       }
 
-      const id = generateId();
+      const id = generateId()
 
       const userInsert: MovieDataInsertDTO = {
         id: id,
