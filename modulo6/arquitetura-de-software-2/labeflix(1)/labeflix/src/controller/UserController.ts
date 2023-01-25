@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { User } from "../types/User";
+import { UserInputDTO } from "../model/userDTO";
 
 export class UserController {
   async create(req: Request, res: Response):Promise<void> {
     try {
-      const { email, name, password } = req.body;
+      const { email, name, password }:UserInputDTO = req.body;
 
       const userBusiness = new UserBusiness();
       await userBusiness.create({ email, name, password });
