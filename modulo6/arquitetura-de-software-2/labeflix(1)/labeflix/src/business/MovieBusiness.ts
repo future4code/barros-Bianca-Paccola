@@ -1,4 +1,6 @@
 import { MovieDatabase } from "../data/MovieDatabase";
+import { CustomError } from "../error/customError";
+import { IncompleteData } from "../error/MovieErros";
 import { MovieDataInsertDTO, MovieInputDTO } from "../model/movieDTO";
 import { generateId } from "../services/idGenerator";
 
@@ -11,7 +13,7 @@ export class MovieBusiness {
         !movie.durationInMinutes ||
         !movie.yearOfRelease
       ) {
-        throw new Error("Dados incompletos.");
+        throw new IncompleteData;
       }
 
       const id = generateId()
@@ -28,7 +30,7 @@ export class MovieBusiness {
       await movieDatabase.create(userInsert);
 
     } catch (error: any) {
-      throw new Error(error.message);
+      throw new CustomError(error.statusCode, error.message);
     }
   }
 
@@ -36,7 +38,7 @@ export class MovieBusiness {
     try {
       return await new MovieDatabase().getAll();
     } catch (error: any) {
-      throw new Error(error.message);
+      throw new CustomError(error.statusCode, error.message);
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { MovieBusiness } from "../business/MovieBusiness";
+import { CustomError } from "../error/customError";
 import { MovieInputDTO } from "../model/movieDTO";
 
 export class MovieController {
@@ -15,7 +16,7 @@ export class MovieController {
     
             res.status(201).send({message: "Filme cadastrado com sucesso!"})
         } catch (error:any) {
-            throw new Error(error.message);
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
 
@@ -23,7 +24,7 @@ export class MovieController {
         try {
             res.status(200).send(await new MovieBusiness().getAll());
         } catch (error:any) {
-            throw new Error(error.message);
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     } 
 }
