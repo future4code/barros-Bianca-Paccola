@@ -1,5 +1,4 @@
 import { UserDataInsertDTO } from "../model/userDTO";
-import { User } from "../class/User";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase {
