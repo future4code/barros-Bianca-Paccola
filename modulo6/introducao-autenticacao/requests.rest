@@ -1,6 +1,6 @@
 # @name signup
 
-POST http://localhost:3003/user/signup
+POST http://localhost:3003/user/user/signup
 Content-Type: application/json
 
 {

@@ -1,4 +1,5 @@
 import { UserDatabase } from "../data/UserDatabase";
+import {IdGenerator} from "../services/IdGenerator"
 import { CustomError, InvalidEmail, InvalidName } from "../error/customError";
 import {
   UserInputDTO,
@@ -6,9 +7,10 @@ import {
   EditUserInputDTO,
   EditUserInput,
 } from "../model/user";
+import { Authenticator } from "../services/Authenticator";
 
 export class UserBusiness {
-  public createUser = async (input: UserInputDTO) => {
+  public signup = async (input: UserInputDTO) => {
     try {
       const { name, nickname, email, password } = input;
 
@@ -19,6 +21,14 @@ export class UserBusiness {
         );
       }
 
+      if (password.length < 6) {
+        throw new CustomError(
+          422,
+          "Senha precisa ter no mínimo 6 caracteres."
+        )
+        
+      }
+
       if (name.length < 4) {
         throw new InvalidName();
       }
@@ -27,7 +37,7 @@ export class UserBusiness {
         throw new InvalidEmail();
       }
 
-      const id: string = Date.now().toString();
+      const id: string = IdGenerator.generateId();
 
       const user: user = {
         id,
@@ -38,6 +48,10 @@ export class UserBusiness {
       };
       const userDatabase = new UserDatabase();
       await userDatabase.insertUser(user);
+      
+      //gerando token de autenticação
+      const token = Authenticator.generateToken({id})
+      return token;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

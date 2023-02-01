@@ -1,9 +1,9 @@
 import * as jwt from 'jsonwebtoken'
 import { AuthenticationData } from "../model/user";
 
-abstract class Authenticator {
+export abstract class Authenticator {
 
-    static generateToken(id: string):string {
+    static generateToken({id}: AuthenticationData):string {
         const token = jwt.sign(
             {id},
             process.env.JWT_KEY as string,

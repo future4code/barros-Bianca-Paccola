@@ -6,5 +6,5 @@ export const userRouter = express.Router()
 
 const userController = new UserController()
 
-userRouter.post('/signup', userController.createUser)
+userRouter.post('/user/signup', userController.signup)
 userRouter.put('/edit',userController.editUser )

@@ -25,3 +25,4 @@ CREATE TABLE IF NOT EXISTS Auth_assignees (
     FOREIGN KEY (assignee_id) REFERENCES Auth_users(id)
 );
 
+SELECT * FROM Auth_users;
