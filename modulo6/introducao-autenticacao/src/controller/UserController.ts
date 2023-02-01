@@ -46,11 +46,11 @@ export class UserController {
 
       public editUser = async (req: Request, res: Response) => {
         try {
-          
+
           const input: EditUserInputDTO = {
             name: req.body.name,
             nickname: req.body.nickname,
-            id: req.params.id
+            token: req.headers.authorization as string
           };
 
           const userBusiness = new UserBusiness()

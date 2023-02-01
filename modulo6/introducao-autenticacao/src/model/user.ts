@@ -16,7 +16,7 @@ export interface UserInputDTO {
 export interface EditUserInputDTO {
    name: string,
    nickname: string,
-   id: string
+   token: string
 }
 
 export interface EditUserInput {

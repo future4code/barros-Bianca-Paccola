@@ -14,11 +14,13 @@ Content-Type: application/json
 
 @id = {{signup.response.body.newUser.id}}
 
-PUT http://localhost:3003/user/edit/{{id}}
+PUT http://localhost:3003/user/edit/
 Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFmNmY0ZDhhLTAxNDYtNDkyZC04MGNjLWFiMjQ5NzRjZTFhMiIsImlhdCI6MTY3NTIxODQ4OSwiZXhwIjoxNjc1MjIyMDg5fQ.lnN_5INacNWmfwVE5V7vzQB_xt4pbB1wJS6j2KjTNzE
 
 {
-   "name": "Harry Osbourne" 
+   "name": "Bianca Paccola" ,
+   "nickname": "Bia"
 }
 
 ###
@@ -27,6 +29,6 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-   "email": "osbourne@oscorp.com",
-   "password": "ihatepeter"
+   "email": "teste@oscorp.com",
+   "password": "123bbg"
 }

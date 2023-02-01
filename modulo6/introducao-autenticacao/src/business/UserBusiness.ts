@@ -101,9 +101,9 @@ export class UserBusiness {
 
   public editUser = async (input: EditUserInputDTO) => {
     try {
-      const { name, nickname, id } = input;
+      const { name, nickname, token } = input;
 
-      if (!name || !nickname || !id) {
+      if (!name || !nickname) {
         throw new CustomError(
           400,
           'Preencha os campos "id", "name" e "nickname"'
@@ -113,6 +113,11 @@ export class UserBusiness {
       if (name.length < 4) {
         throw new InvalidName();
       }
+
+      const {id} = Authenticator.getToken(token)
+      // OU const id = Authenticator.getToken(token).id
+
+      console.log(token)
 
       const editUserInput: EditUserInput = {
         id,
