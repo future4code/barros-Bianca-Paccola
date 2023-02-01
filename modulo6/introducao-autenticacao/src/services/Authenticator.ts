@@ -1,4 +1,5 @@
 import * as jwt from 'jsonwebtoken'
+import { Unaunthorized } from '../error/customError';
 import { AuthenticationData } from "../model/user";
 
 export abstract class Authenticator {
@@ -13,10 +14,15 @@ export abstract class Authenticator {
     }
 
     static getToken(token: string):AuthenticationData {
-        const payload = jwt.verify(
-            token,
-            process.env.JWT_KEY as string
-        ) as AuthenticationData
-        return payload;
+        try {
+            const payload = jwt.verify(
+                token,
+                process.env.JWT_KEY as string
+            ) as AuthenticationData
+            return payload;
+            
+        } catch (error:any) {
+            throw new Unaunthorized();
+        }
     }
 }

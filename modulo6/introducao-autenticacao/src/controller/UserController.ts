@@ -54,7 +54,7 @@ export class UserController {
           };
 
           const userBusiness = new UserBusiness()
-          userBusiness.editUser(input);
+          await userBusiness.editUser(input);
     
           res.status(201).send({ message: "Usuário alterado!" });
         } catch (error: any) {
