@@ -1,8 +1,28 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { EditUserInputDTO, UserInputDTO } from "../model/user";
+import { EditUserInputDTO, LoginInputDTO, UserInputDTO } from "../model/user";
 
 export class UserController {
+
+    public login = async (req: Request, res: Response) => {
+      try {
+        const email = req.body.email;
+        const password = req.body.password as string;
+
+        const input: LoginInputDTO = {
+          email,
+          password
+        }
+
+        const userBusiness = new UserBusiness()
+        const token = await userBusiness.login(input)
+
+        res.status(200).send({token})
+
+      } catch (error:any) {
+        res.status(400).send(error.message);
+      }
+    }
 
       public signup = async (req: Request, res: Response) => {
         try {

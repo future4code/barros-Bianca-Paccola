@@ -20,3 +20,13 @@ Content-Type: application/json
 {
    "name": "Harry Osbourne" 
 }
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "osbourne@oscorp.com",
+   "password": "ihatepeter"
+}

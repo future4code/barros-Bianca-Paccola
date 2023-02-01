@@ -28,3 +28,8 @@ export interface EditUserInput {
 export interface AuthenticationData {
    id: string
 }
+
+export interface LoginInputDTO {
+   email: string,
+   password: string
+}
