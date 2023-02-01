@@ -4,6 +4,20 @@ import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase {
 
+  public getUser = async (id: string) => {
+    try {
+      const result = await UserDatabase.connection
+      .select()
+      .where({ id })
+      .into("Auth_users");
+      
+      return result[0]
+
+    } catch (error:any) {
+      throw new CustomError(400, error.message || error.sqlMessage);
+    }
+  } 
+
   public findByEmail = async (email: string) => {
     try {
       const result = await UserDatabase.connection

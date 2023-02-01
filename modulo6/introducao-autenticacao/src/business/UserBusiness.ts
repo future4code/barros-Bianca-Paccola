@@ -12,6 +12,20 @@ import { Authenticator } from "../services/Authenticator";
 
 export class UserBusiness {
 
+  public getUser = async (token:string) => {
+    try {
+      const {id} = Authenticator.getToken(token)
+      const userDatabase = new UserDatabase();
+      const result = userDatabase.getUser(id)
+      if(!result) {
+        throw new UserNotFound();
+      }
+      return result;
+    } catch (error:any) {
+      throw new CustomError(400, error.message);
+    }
+  }
+
   public login = async (input: LoginInputDTO) => {
     try {
       const {email, password} = input;

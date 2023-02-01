@@ -4,6 +4,20 @@ import { EditUserInputDTO, LoginInputDTO, UserInputDTO } from "../model/user";
 
 export class UserController {
 
+  public getUser = async (req: Request, res: Response) => {
+    try {
+      const token = req.headers.authorization as string;
+      const userBusiness = new UserBusiness()
+      const result = await userBusiness.getUser(token)
+      res.status(200).send({
+        id: result.id,
+        email: result.email
+      })
+    } catch (error:any) {
+      res.status(400).send(error.message);
+    }
+  }
+
     public login = async (req: Request, res: Response) => {
       try {
         const email = req.body.email;
