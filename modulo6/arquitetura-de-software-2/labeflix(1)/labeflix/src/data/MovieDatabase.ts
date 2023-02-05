@@ -1,29 +1,28 @@
-import { Movie } from "../types/Movie";
+import { CustomError } from "../error/customError";
+import { MovieDataInsertDTO } from "../model/movieDTO";
 import { BaseDatabase } from "./BaseDatabase";
-
 export class MovieDatabase extends BaseDatabase {
-private static TABLE_NAME = "LABEFLIX_MOVIE";
+  private static TABLE_NAME = "LABEFLIX_MOVIE";
 
-    async create(
-        id: string, 
-        title: string, 
-        description: string, 
-        durationInMinutes: number, 
-        yearOfRelease: number):Promise<void> {
-            await BaseDatabase.connection
-            .insert({
-                id: id,
-                title: title,
-                description: description,
-                duration_in_minutes: durationInMinutes,
-                year_of_release: yearOfRelease
-            })
-            .into(MovieDatabase.TABLE_NAME);
-        }
-    
-        async getAll ():Promise<Movie[]> {
-            return await BaseDatabase.connection
-            .select()
-            .into(MovieDatabase.TABLE_NAME)
-        }
+  async create(movie: MovieDataInsertDTO): Promise<void> {
+    try {
+      await BaseDatabase.connection
+        .insert( movie )
+        .into(MovieDatabase.TABLE_NAME);
+      
+    } catch (error:any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  }
+
+  async getAll(): Promise<MovieDataInsertDTO[]> {
+    try {
+      return await BaseDatabase.connection
+        .select()
+        .into(MovieDatabase.TABLE_NAME);
+    } catch (error:any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  }
+  
 }

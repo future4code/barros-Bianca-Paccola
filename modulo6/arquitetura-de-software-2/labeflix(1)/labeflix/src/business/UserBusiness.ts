@@ -1,30 +1,38 @@
-import { UserDatabase } from "../data/UserDatabase"
-import { v4 as generateId } from 'uuid'
-import { User } from "../types/User"
+import { UserDatabase } from "../data/UserDatabase";
+import { CustomError } from "../error/customError";
+import { IncompleteData } from "../error/UserErros";
+import { UserDataInsertDTO, UserInputDTO } from "../model/userDTO";
+import { generateId } from "../services/idGenerator";
 
 export class UserBusiness {
-  async create({ email, name, password }: any):Promise<void> {
-    if (!email || !name || !password) {
-      throw new Error("Dados inválidos (email, name, password)")
-    }
 
-    const id = generateId()
-
-    const userDatabase = new UserDatabase()
-    await userDatabase.create({
-      id,
-      name,
-      email,
-      password
-    })
-  }
-
-  async getAll ():Promise<User[]> {
+  async create(user: UserInputDTO): Promise<void> {
     try {
-      return await new UserDatabase().getAll()
+      if (!user.email || !user.name || !user.password) {
+        throw new IncompleteData;
+      }
+  
+      const id = generateId();
+      const userDatabase = new UserDatabase();
+      const userInsert: UserDataInsertDTO = {
+        id: id,
+        name: user.name,
+        email: user.email,
+        password: user.password,
+      };
+  
+      await userDatabase.create(userInsert);
+      
     } catch (error:any) {
-      throw new Error(error.message);
+      throw new CustomError(error.statusCode, error.message)
     }
   }
 
+  async getAll(): Promise<UserDataInsertDTO[]> {
+    try {
+      return await new UserDatabase().getAll();
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message)
+    }
+  }
 }

@@ -1,37 +1,44 @@
 import { MovieDatabase } from "../data/MovieDatabase";
-import { Movie } from "../types/Movie";
-import { v4 as generateId } from 'uuid'
+import { CustomError } from "../error/customError";
+import { IncompleteData } from "../error/MovieErros";
+import { MovieDataInsertDTO, MovieInputDTO } from "../model/movieDTO";
+import { generateId } from "../services/idGenerator";
 
 export class MovieBusiness {
+  async create(movie: MovieInputDTO): Promise<void> {
+    try {
+      if (
+        !movie.title ||
+        !movie.description ||
+        !movie.durationInMinutes ||
+        !movie.yearOfRelease
+      ) {
+        throw new IncompleteData;
+      }
 
-    async create (title:string,
-         description:string, durationInMinutes:number, yearOfRelease:number):Promise<void> {
-            try {
-                
-                if (!title || !description || !durationInMinutes || !yearOfRelease) {
-                    throw new Error("Dados incompletos.");
-                }
+      const id = generateId()
 
-                const id = generateId()
+      const userInsert: MovieDataInsertDTO = {
+        id: id,
+        title: movie.title,
+        description: movie.description,
+        duration_in_minutes: movie.durationInMinutes,
+        year_of_release: movie.yearOfRelease,
+      };
 
-                const movieDatabase = new MovieDatabase()
-                await movieDatabase.create(
-                    id,
-                    title,
-                    description,
-                    durationInMinutes,
-                    yearOfRelease
-                )
-            } catch (error: any) {
-                throw new Error(error.message);
-            }
-         }
+      const movieDatabase = new MovieDatabase();
+      await movieDatabase.create(userInsert);
 
-        async getAll ():Promise<Movie[]> {
-            try {
-                return await new MovieDatabase().getAll();
-            } catch (error:any) {
-                throw new Error(error.message);
-            }
-        }
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  }
+
+  async getAll(): Promise<MovieDataInsertDTO[]> {
+    try {
+      return await new MovieDatabase().getAll();
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  }
 }
