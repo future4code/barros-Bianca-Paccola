@@ -1,44 +1,51 @@
-import { userPurchase } from "../src/functions"
+import { userPurchase } from "../src/functionsClients/functions"
 import { userDto, userInputPurchaseDTO } from "../src/model/userDTO"
 
 describe("Testes do usuário", () => {
 
-    test("Teste de compra do cliente", () => {
-        expect(userPurchase({
+    test("Teste de compra do cliente: saldo igual ao valor da compra, deve zerar o saldo", () => {
+        const purchase: userInputPurchaseDTO = {
             user: {
                 name: "Bianca Paccola",
                 userBalance: 550
             },
             value: 550
-        })).toStrictEqual({
+        }
+        const result: userDto = {
             name: "Bianca Paccola",
             userBalance: 0
-        })
+        }
+
+        expect(userPurchase(purchase)).toStrictEqual(result)
     })
 
-    test("Teste de compra do cliente", () => {
-        expect(userPurchase({
+    test("Teste de compra do cliente com saldo superior ao valor da compra, deve retornar um saldo positivo", () => {
+        const purchase:userInputPurchaseDTO = {
             user: {
                 name: "Bianca Paccola",
                 userBalance: 1000
             },
             value: 550
-        })).toStrictEqual({
+        }
+        const result: userDto = {
             name: "Bianca Paccola",
             userBalance: 450
-        })
+        }
+
+        expect(userPurchase(purchase)).toStrictEqual(result)
     })
 })
 
 describe("Teste de erros do usuário", () => {
 
     test("Testando erro caso o saldo seja insuficiente para a compra", () => {
-        expect(userPurchase({
+        const purchase: userInputPurchaseDTO = {
             user: {
                 name: "Bianca Paccola",
                 userBalance: 500
             },
             value: 550
-        })).toBe(undefined)
+        }
+        expect(userPurchase(purchase)).not.toBeDefined()
     })
 })

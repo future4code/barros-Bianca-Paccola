@@ -1,4 +1,4 @@
-import { userDto, userInputPurchaseDTO } from "./model/userDTO";
+import { userDto, userInputPurchaseDTO } from "../model/userDTO";
 
 export const userPurchase =  (input: userInputPurchaseDTO):userDto | undefined => {
 
