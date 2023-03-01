@@ -5,7 +5,7 @@ describe("Testes do usuário", () => {
     const userPurchaseTest:userInputPurchaseDTO = {
         user: {
             name: "Bianca Paccola",
-            userBalance: 1000
+            userBalance: 550
         },
         value: 550
     }
@@ -16,5 +16,18 @@ describe("Testes do usuário", () => {
 
     test("Teste de compra do cliente", () => {
         expect(userPurchase(userPurchaseTest)).toStrictEqual(responsePurchase)
+    })
+})
+
+describe("Teste de erros do usuário", () => {
+    const userPurchaseTest:userInputPurchaseDTO = {
+        user: {
+            name: "Bianca Paccola",
+            userBalance: 500
+        },
+        value: 550
+    }
+    test("Testando erro caso o saldo seja insuficiente para a compra", () => {
+        expect(userPurchase(userPurchaseTest)).toBe(undefined)
     })
 })
