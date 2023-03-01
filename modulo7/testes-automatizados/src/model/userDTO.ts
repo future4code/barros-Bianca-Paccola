@@ -1,10 +1,9 @@
-
 export interface userDto {
-    name: string;
-    userBalance: number;
+  name: string;
+  userBalance: number;
 }
 
 export interface userInputPurchaseDTO {
-    user: userDto,
-    value: number;
+  user: userDto;
+  value: number;
 }
