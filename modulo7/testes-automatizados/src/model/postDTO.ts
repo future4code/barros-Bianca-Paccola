@@ -10,10 +10,3 @@ export interface postDTO {
     type: POST_TYPES,
     authorId: string
 }
-
-export interface postInputDTO {
-    photo: string,
-    description: string,
-    type: POST_TYPES,
-    authorId: string
-}
