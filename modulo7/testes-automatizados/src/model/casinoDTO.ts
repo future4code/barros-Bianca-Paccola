@@ -1,5 +1,4 @@
 export enum LOCATION {
-  //inputs
   EUA = "EUA",
   BRAZIL = "BRAZIL",
 }

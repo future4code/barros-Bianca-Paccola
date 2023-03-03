@@ -1,7 +1,7 @@
-import { userPurchase } from "../src/functionsClients/functions";
+import { userPurchase } from "../src/functions/functionsClient";
 import { userDto, userInputPurchaseDTO } from "../src/model/userDTO";
 
-describe.skip("Testes do usuário", () => {
+describe("Testes do usuário", () => {
   test("Teste de compra do cliente: saldo igual ao valor da compra, deve zerar o saldo", () => {
     const purchase: userInputPurchaseDTO = {
       user: {

@@ -11,6 +11,7 @@ export class PostDatabase extends BaseDatabase {
                 photo: input.photo,
                 description: input.description,
                 type: input.type,
+                created_at: input.createdAt,
                 author_id: input.authorId
             })
             .into(PostDatabase.TABLE_NAME)
@@ -34,20 +35,4 @@ export class PostDatabase extends BaseDatabase {
       throw new Error(error.message || error.sqlMessage);
     }
   }
-
-  // async removePost(id:string) {
-  //   try {
-  //     await PostDatabase.connection.del().where({id}).into(PostDatabase.TABLE_NAME)    
-  //   } catch (error:any) {
-  //     throw new Error(error.message || error.sqlMessage);
-  //   }
-  // }
-
-  // async destroyConnection () {
-  //   try {
-  //     await BaseDatabase.connection.destroy();
-  //   } catch (error:any) {
-  //     throw new Error(error.message || error.sqlMessage);
-  //   }
-  // }
 }

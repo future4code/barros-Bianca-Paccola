@@ -1,4 +1,4 @@
-import { casinoList } from "../src/funcstionsCasino/functions";
+import { casinoList } from "../src/functions/functionsCasino";
 import {
   CasinoDTO,
   LOCATION,
@@ -6,7 +6,7 @@ import {
   UserDTO,
 } from "../src/model/casinoDTO";
 
-describe.skip("Testes para entrada no casino", () => {
+describe("Testes para entrada no casino", () => {
   const casinoBra: CasinoDTO = {
     name: "Casino Ás de Copas",
     location: LOCATION.BRAZIL,
