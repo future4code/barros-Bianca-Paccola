@@ -18,7 +18,6 @@ export class PostDatabase extends BaseDatabase {
       
     } catch (error:any) {
       throw new Error(error.message || error.sqlMessage);
-      
     }
   }
 

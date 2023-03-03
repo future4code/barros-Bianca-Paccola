@@ -1,7 +1,7 @@
 import { PostDatabase } from "../data/PostDatabase";
 import { postDTO } from "../model/postDTO";
 
-export const createPost = async (newPost: postDTO) => {
+export const createPost = async (newPost: postDTO): Promise<string> => {
   try {
     const postDatabase = new PostDatabase();
     await postDatabase.insertPost(newPost);
