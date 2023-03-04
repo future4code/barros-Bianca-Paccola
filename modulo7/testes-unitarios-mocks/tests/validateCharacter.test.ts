@@ -1,7 +1,7 @@
 import { validateCharacter } from "../src/functionsCharacter"
 import { characterDTO } from "../src/model/characterDTO"
 
-describe("Tests for the character", () => {
+describe("Tests for the validate character", () => {
     
     test("Should return false", () =>{
         const character: characterDTO = {
