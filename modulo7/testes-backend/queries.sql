@@ -8,3 +8,6 @@ role VARCHAR(255) DEFAULT "NORMAL"
 
 INSERT into User_Arq_testes
 VALUES("4225596", "Bianca Paccola", "bianca@email.com", "123abc", "ADMIN");
+
+INSERT into User_Arq_testes
+VALUES("166459", "Marina Alves", "marina@email.com", "abc123", "NORMAL");

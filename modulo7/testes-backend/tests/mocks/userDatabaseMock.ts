@@ -5,6 +5,10 @@ import { userMock } from "./userMock";
 export class userDatabaseMock implements UserRepository {
     public async getUserById(id: string): Promise<User | undefined> {
         return id === '555666' ? userMock : undefined;
-    }
+    };
+
+    public async getAllUsers(): Promise<User[]> {
+        return [userMock];
+    };
     
 }

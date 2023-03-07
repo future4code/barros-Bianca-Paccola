@@ -3,7 +3,7 @@ import { CustomError } from "../../src/error/CustomError";
 import { userDatabaseMock } from "../mocks/userDatabaseMock";
 import { userMock } from "../mocks/userMock";
 
-describe("Tests for user", () => {
+describe("Tests for get an user", () => {
     const userBusiness = new UserBusiness(new userDatabaseMock());
 
     test("Should catch error when id is not registered", async () => {
@@ -26,5 +26,22 @@ describe("Tests for user", () => {
         expect(result).toEqual(userMock)
         expect(getUserById).toHaveBeenCalledTimes(1)
         expect(getUserById).toHaveBeenCalledWith("555666")
+    })
+
+    test("Should return all users for amdin user", async () => {
+        const result = await userBusiness.getAllUsers('ADMIN')
+        expect(result).toEqual([userMock])
+    })
+
+        test("Should error to not admin user", async () => {
+        expect.assertions(4)
+        try {
+            const result = await userBusiness.getAllUsers('NORMAL')
+        } catch (error:any) {
+            expect(error).toBeDefined()
+            expect(error).toBeInstanceOf(CustomError)
+            expect(error.message).toBe('You must be an admin to access this endpoint')
+            expect(error.statusCode).toBe(401)
+        }
     })
 })

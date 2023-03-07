@@ -18,4 +18,16 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
             throw new CustomError(400, error.message || error.sqlMessage);  
         }
     }
+
+    public async getAllUsers (): Promise<User[]> {
+        try {
+            const result = await BaseDatabase.connection
+            .select('*')
+            .into(UserDatabase.TABLE_NAME)
+    
+            return result;
+        } catch (error:any) {
+            throw new CustomError(400, error.message || error.sqlMessage);  
+        }
+    }
 }

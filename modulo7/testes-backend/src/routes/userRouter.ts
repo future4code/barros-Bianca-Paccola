@@ -10,3 +10,4 @@ const userBusiness = new UserBusiness(userDatabase);
 const userContoller = new UserController(userBusiness)
 
 userRouter.get("/profile/:id", (req, res) => userContoller.getUserById(req, res))
+userRouter.get("/all", (req, res) =>userContoller.getAllUsers(req, res))
