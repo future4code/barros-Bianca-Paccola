@@ -19,7 +19,12 @@ describe("Tests for user", () => {
     })
 
     test("Should return respective user when id is registered", async () => {
-        const result = await userBusiness.getUserById('555666')
+        const getUserById = jest.fn(
+            (id: string) => userBusiness.getUserById(id)
+          )
+        const result = await getUserById('555666')
         expect(result).toEqual(userMock)
+        expect(getUserById).toHaveBeenCalledTimes(1)
+        expect(getUserById).toHaveBeenCalledWith("555666")
     })
 })
