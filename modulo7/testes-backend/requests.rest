@@ -1,0 +1,2 @@
+GET http://localhost:3003/user/profile/4225596
+Content-Type: Content-Type: application/json
