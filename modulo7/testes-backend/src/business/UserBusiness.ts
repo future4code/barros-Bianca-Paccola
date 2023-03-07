@@ -1,14 +1,13 @@
-import { UserDatabase } from "../data/UserDatabase";
 import { CustomError } from "../error/CustomError";
-import { userDTO } from "../model/userDTO";
-
-const userDatabase = new UserDatabase();
+import { User } from "../model/User";
+import { UserRepository } from "./UseRepository";
 
 export class UserBusiness {
+    constructor(private userDatabase: UserRepository) {}
 
-    public async getUserById (id: string): Promise<userDTO> {
+    public async getUserById (id: string): Promise<User | undefined> {
         try {
-            const result = await userDatabase.getUserById(id) 
+            const result = await this.userDatabase.getUserById(id) 
             if (!result) {
                 throw new CustomError(404, "User not found")
             }
