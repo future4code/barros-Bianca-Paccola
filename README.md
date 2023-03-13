@@ -1,5 +1,8 @@
 # Olá! Seja bem-vindo(a)!
-<center><img src="https://github.com/BiancaPaccola/estudos/blob/main/avatar7.png?raw=true" width='200px' /></center>
+
+<div align="center">
+<img src="https://github.com/BiancaPaccola/estudos/blob/main/avatar7.png?raw=true" width='200px' />
+<div>
 
 </br>
 
@@ -11,7 +14,7 @@
 
 </br>
 
-<center>
+<div align="center">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width='40px' />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width='40px'/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width='40px'/>
@@ -20,7 +23,7 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg" width='40px'/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" width='40px'/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width='40px'/>
-</center>
+</div>
 
 </br>
 
