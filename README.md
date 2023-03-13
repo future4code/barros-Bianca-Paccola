@@ -2,7 +2,7 @@
 
 <div align="center">
 <img src="https://github.com/BiancaPaccola/estudos/blob/main/avatar7.png?raw=true" width='200px' />
-<div>
+</div>
 
 </br>
 
