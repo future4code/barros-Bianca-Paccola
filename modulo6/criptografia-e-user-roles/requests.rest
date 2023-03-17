@@ -1,0 +1,43 @@
+# @name signup
+
+//criar um novo usuário na base de dados
+POST http://localhost:3003/user/user/signup
+Content-Type: application/json
+
+{
+   "name": "Norman Osbourne", 
+   "nickname": "Green Goblin", 
+   "email": "osbourne@oscorp.com" ,
+   "password": "ihatepeter"
+}
+
+###
+
+@id = {{signup.response.body.newUser.id}}
+
+//editar nome e nickname de um usuário
+PUT http://localhost:3003/user/edit/
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFmNmY0ZDhhLTAxNDYtNDkyZC04MGNjLWFiMjQ5NzRjZTFhMiIsImlhdCI6MTY3NTIxODQ4OSwiZXhwIjoxNjc1MjIyMDg5fQ.lnN_5INacNWmfwVE5V7vzQB_xt4pbB1wJS6j2KjTNzE
+
+{
+   "name": "Bianca Paccola" ,
+   "nickname": "Bia"
+}
+
+###
+
+//efetuar o login de um usuário que já possui cadastro
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "teste@oscorp.com",
+   "password": "123bbg"
+}
+
+//pegar os dados de um usuário a partir de um token de autorização
+###
+GET http://localhost:3003/user/user/profile
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFmNmY0ZDhhLTAxNDYtNDkyZC04MGNjLWFiMjQ5NzRjZTFhMiIsImlhdCI6MTY3NTIxODQ4OSwiZXhwIjoxNjc1MjIyMDg5fQ.lnN_5INacNWmfwVE5V7vzQB_xt4pbB1wJS6j2KjTNzE
