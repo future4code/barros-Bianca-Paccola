@@ -1,0 +1,27 @@
+{
+  "name": "jest-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/jest/bin/jest.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^25.2.3",
+    "dotenv": "^16.0.3",
+    "jest": "^26.0.1",
+    "knex": "^2.4.2",
+    "mysql": "^2.18.1",
+    "ts-jest": "^26.1.0",
+    "ts-node-dev": "^1.1.8",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/knex": "^0.16.1",
+    "@types/node": "^18.14.2",
+    "@types/uuid": "^9.0.1",
+    "typescript": "^4.9.5"
+  }
+}
