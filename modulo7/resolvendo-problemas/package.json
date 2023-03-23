@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-		"start:dev": "ts-node-dev ./src/index.ts",
+		"start:dev-matrix": "ts-node-dev ./src/matrix.ts",
+    "start:dev-string": "ts-node-dev ./src/strings.ts",
     "start": "node ./build/index.js",
     "build": "tsc"  
 },
