@@ -113,7 +113,7 @@ matrix2[2] = [9,7,8]
 
 const replaceMatrixValue = (matrix: number[][], indexRow: number, indexCol: number, value:number):void => {
   if(!matrix[indexRow] || !matrix[indexRow][indexCol]) {
-    throw console.error("\x1b[31mError: Out of array range");
+    console.error("\x1b[31mError: Out of array range");
   } else {
     matrix[indexRow][indexCol] = value
   }
@@ -126,14 +126,24 @@ const replaceMatrixValue = (matrix: number[][], indexRow: number, indexCol: numb
   a. Implemente uma função que receba uma matriz e imprima, no console, todos os seus elementos
 */
 const printMatrix = (matrix: number[][]): void => {
-  console.table(matrix)
+  for(let index of matrix) {
+    for(let element of index) {
+      console.log(element)
+    }
+  }
 }
 // printMatrix(matrix1);
 
 /*
 b. Implemente uma função que receba duas matrizes e devolva a soma delas
 */
-function sumMatrix(matrix1: number[][], matrix2: number[][]): void {
+const sumMatrix = (matrix1: number[][], matrix2: number[][]): void => {
+  if (
+    matrix1.length !== matrix2.length ||
+    matrix1[0].length !== matrix2[0].length
+  ) {
+    console.error("\x1b[31mError: Out of array range");
+  }
 
   let matrixResult:number[][] = [];
 
@@ -148,3 +158,22 @@ function sumMatrix(matrix1: number[][], matrix2: number[][]): void {
   console.table(matrixResult);
 }
 // sumMatrix(matrix1, matrix2)
+
+/*
+c. Implemente uma função que receba uma matriz e devolva a sua matriz transposta
+*/
+const transposedMatrix = (matrix: number[][]): void => {
+
+  let matrixResult:number[][] = [];
+
+  for(let i = 0; i < matrix[0].length; i++) {
+    let rows:number[] = []
+    for(let j = 0; j < matrix.length; j++) {
+      rows.push(matrix[j][i])
+    }
+    matrixResult.push(rows)
+  }
+
+  console.log(matrixResult);
+}
+// transposedMatrix([[-1,0],[3,6],[8,-4]]) //[[-1,3,8],[0,6,-4]]
