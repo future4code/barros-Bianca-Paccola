@@ -73,5 +73,50 @@ function verifyIfExistRepeatedNumbers(listOfNumbers: number[]): boolean {
 
   // RESPOSTA: O algoritmo acima tem complexidade de O(n²), pois existe um loop aninhando que recebe um parâmetro variável (listOfNumbers). O método indexOf é um método de iteração...
 
-// Coloque, em ordem de eficiência, os 4 algoritmos que você teve que calcular a complexidade
+//  - Exercício 5
+  // Coloque, em ordem de eficiência, os 4 algoritmos que você teve que calcular a complexidade Da maior eficiência/performance para a menor
+    //RESPOSTA:  3 → 1 = 2 → 4
+
+// EXERCÍCIO 06
+function product(a: number, b: number): number {
+    let sum = 0;
+    for (let i = 0; i < b; i++) {
+      sum += a;
+    }
+    return sum
+  }
+
+    //REPOSTA:  RESPOTA: O algortimo acima tem complexidade O(n), pois o laço itera sobre o parametro da função (b) que é um valor variável...
+
+// EXERCÍCIO 07
+function mod(a: number, b: number): number {
+    if (b <= a) {
+      return -1;
+    }
+    let div = a / b;
+    return a - div * b;
+  }
+
+  // RESPOSTA: O algoritmo acima tem complexidade O(1) pois ele não possui iteração com valores variáveis
+
+//EXERCICIO 07
+  function copyArray(array: number[]): number[] {
+    let copy: number[] = [];
+    for (const value of array) {
+      copy = appendToNew(copy, value);
+    }
+    return copy;
+  }
+  
+  function appendToNew(array: number[], value: number) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+      newArray.push(array[i]);
+    }
+    newArray.push(value);
+    return newArray;
+  }
+
+  // RESPOSTA: appendToNew tem complexidade O(n) pois tem um loop que itera sobre um parâmetro variável (array).
+  // Já copyArray tem variável O(n²), pois ele itera sobre uma variável e dentro da iteração ele chama a outra função.. tendo assim, a complexidade de um laço aninhado.
 
