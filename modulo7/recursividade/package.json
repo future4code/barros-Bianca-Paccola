@@ -1,0 +1,18 @@
+{
+  "name": "recursividade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev ./src/index.ts",
+    "start": "node ./build/index.js"
+  },
+  "keywords": [],
+  "author": "bianca-paccola",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.15.11",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.3"
+  }
+}
