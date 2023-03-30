@@ -47,4 +47,46 @@ function printArray (array: any[], index:number = 0):void {
         printArray(array, index+1)
     }
 }
-printArray(["Uva", "Maçã", "Pêssego"])
+// printArray(["Uva", "Maçã", "Pêssego"])
+
+// Escreva uma função recursiva que determine a quantidade de digitos de um número
+function getDigits (n: number, index:number = 0):void {
+    if(index < n.toString().length) {
+        getDigits(n, index+1)
+    } else {
+        console.log(index)
+    }
+}
+// getDigits(555555);
+
+// Escreva uma função recursiva que determine o maior valor de um array que contenha somente números positivos 
+function getPositives(array: number[], index: number = 0, aux:number = 0) {
+    if (index < array.length) {
+        if(array[index] > aux) {
+            aux = array[index];
+        }
+        getPositives(array, index+1, aux)
+    } else {
+        console.log(aux);
+    }
+}
+// getPositives([10,1,55,20,35])
+
+// Escreva uma função recursiva que determine o primeiro caractere maiúsculo de uma string
+function getUpperChar (str: string, index:number = 0, aux:string = 'a', verify:boolean = true):void {
+    if(index < str.length && verify) {
+        if(str[index] < aux && verify) { // O VERIFY NESSA LINHA FUNCIONA COMO UM 'BREAK'
+            aux = str[index]
+            verify = !verify
+        }
+        getUpperChar(str, index+1, aux, verify)
+    } else {
+        console.log(aux);
+    }
+}
+
+const inicio = performance.now();
+getUpperChar("aMANDA")
+const fim = performance.now();
+
+console.log(`A operação levou ${fim - inicio} milissegundos`);
